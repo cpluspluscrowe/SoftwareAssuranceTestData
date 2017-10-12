@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://robinagandhi.github.io/swa/slides/lecture-1/systems-security-engineering.html#5 -->
+<html class="remark-container">
+  <body class="remark-container">
+<div class="remark-notes-area">
+  <div class="remark-top-area">
+    <div class="remark-toolbar">
+      <a class="remark-toolbar-link" href="https://robinagandhi.github.io/swa/slides/lecture-1/systems-security-engineering.html#increase">+</a>
+      <a class="remark-toolbar-link" href="https://robinagandhi.github.io/swa/slides/lecture-1/systems-security-engineering.html#decrease">-</a>
+      <span class="remark-toolbar-timer">0:04:12</span>
+    </div>
+  </div>
+  <div class="remark-bottom-area">
+    <div class="remark-notes-current-area">
+      <div class="remark-toggle">Notes for current slide</div>
+      <div class="remark-notes"></div>
+    </div>
+    <div class="remark-notes-preview-area">
+      <div class="remark-toggle">Notes for next slide</div>
+      <div class="remark-notes-preview"></div>
+    </div>
+  </div>
+</div>
+<div class="remark-slides-area"><div class="remark-slide-container"><div class="remark-slide-scaler"><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="systems-security-engineering-">Systems Security Engineering*</h1>
+<div class="footnote">*Based on Chapter 2 of <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-160.pdf">NIST SP 800-160 Systems Security Engineering</a><br>which expands on <a href="http://www.iso.org/iso/catalogue_detail?csnumber=63711">ISO/IEC/IEEE 15288:2015
+Systems and software engineering</a></div><div class="remark-slide-number">1 / 42</div></div></div></div><div class="remark-slide-notes"><p>Appendices to NIST SP 800-160 are going to be added soon.
+<a href="https://beta.csrc.nist.gov/News/2016/NIST-Special-Publication-800-160,-Systems-Secu-%281%29">https://beta.csrc.nist.gov/News/2016/NIST-Special-Publication-800-160,-Systems-Secu-%281%29</a></p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><p><img src="./Systems Security Engineering5_files/b7797c402f4901348be4005056a9545d" alt="Dilbert"></p><div class="remark-slide-number">2 / 42</div></div></div></div><div class="remark-slide-notes"><p>Systems security engineering is hard. Particularly, when you have a well-resourced and capable adversary.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="agenda">Agenda</h1>
+<ol>
+<li><p>Need for Security Engineering  </p>
+</li>
+<li><p>Terminology  </p>
+</li>
+<li><p>Security Engineering Perspective  </p>
+</li>
+<li><p>Security Engineering Framework</p>
+</li>
+</ol><div class="remark-slide-number">3 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><p><img src="./Systems Security Engineering5_files/dsb-taxonomy.png" alt="Tiers"></p>
+<div class="footnote">*<a href="http://www.acq.osd.mil/dsb/reports/2010s/ResilientMilitarySystemsCyberThreat.pdf">Defense Science Board 2013 Report</a></div><div class="remark-slide-number">4 / 42</div></div></div></div><div class="remark-slide-notes"><h1 id="report-terminology">Report Terminology</h1>
+<h2 id="cyber">Cyber</h2>
+<p>broadly used to address the components and systems that provide all digital information, including weapons/battle management systems, IT systems, hardware, processors, and software operating systems and applications, both standalone and embedded.</p>
+<h2 id="resilience">Resilience</h2>
+<p>defined as the ability to provide acceptable operations despite disruption: natural or man-made, inadvertent or deliberate.</p>
+<h2 id="existential-cyber-attack">Existential Cyber Attack</h2>
+<p>defined as an attack that is capable of causing sufficient wide scale
+damage for the government potentially to lose control of the country, including loss or damage to significant portions of military and critical infrastructure: power generation, communications, fuel and transportation, emergency services, financial services, etc.</p>
+<p>The Task Force developed a threat hierarchy to describe capabilities of potential attackers, organized by level of skills and breadth of available resources</p>
+<ul>
+<li>Tiers I and II attackers primarily exploit known vulnerabilities</li>
+<li>Tiers III and IV attackers are better funded and have a level of expertise and sophistication sufficient to discover new vulnerabilities in systems and to exploit them</li>
+<li>Tiers V and VI attackers can invest large amounts of money (billions) and time (years) to actually create vulnerabilities in systems, including systems that are otherwise strongly protected.</li>
+</ul>
+<p>Higher-tier competitors will use all capabilities available to them to attack a system but will usually try lower-tier exploits first before exposing their most advanced capabilities. Tier V and VI level capabilities are today limited to just a few countries such as the <em>United States, China and Russia</em>.</p></div></div><div class="remark-slide-container remark-visible"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="need-for-security-engineering">Need for Security Engineering</h1>
+<h2 id="vulnerabilities-within-organizations">Vulnerabilities within organizations</h2>
+<ul>
+<li>Known vulnerabilities</li>
+<li><span class="red">Unknown</span> vulnerabilities</li>
+<li><span class="red">Adversary-created</span> vulnerabilities</li>
+</ul><div class="remark-slide-number">5 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="need-for-security-engineering">Need for Security Engineering</h1>
+<h2 id="vulnerabilities-within-organizations">Vulnerabilities within organizations</h2>
+<ul>
+<li>Known vulnerabilities</li>
+<li><span class="red">Unknown</span> vulnerabilities</li>
+<li><span class="red">Adversary-created</span> vulnerabilities</li>
+</ul>
+<h2 id="visible-vulnerabilities">Visible Vulnerabilities</h2>
+<ul>
+<li>Discovery and patching</li>
+</ul><div class="remark-slide-number">6 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="need-for-security-engineering">Need for Security Engineering</h1>
+<h2 id="vulnerabilities-within-organizations">Vulnerabilities within organizations</h2>
+<ul>
+<li>Known vulnerabilities</li>
+<li><span class="red">Unknown</span> vulnerabilities</li>
+<li><span class="red">Adversary-created</span> vulnerabilities</li>
+</ul>
+<h2 id="visible-vulnerabilities">Visible Vulnerabilities</h2>
+<ul>
+<li>Discovery and patching</li>
+</ul>
+<h2 id="invisible-vulnerabilities">Invisible Vulnerabilities</h2>
+<ul>
+<li>Sound security engineering</li>
+</ul><div class="remark-slide-number">7 / 42</div></div></div></div><div class="remark-slide-notes"><p>2013 Defense Science Board Task Force described several tiers of vulnerabilities within organizations including known vulnerabilities, unknown vulnerabilities, and adversary-created vulnerabilities. The important and sobering message conveyed by the Defense Science Board is that the top two tiers of vulnerabilities (i.e., the unknown vulnerabilities and adversary-created vulnerabilities) are, for the most part, totally invisible to most organizations. These vulnerabilities can be effectively addressed by sound systems security engineering techniques, methodologies, processes, and practices—in essence, providing the necessary trustworthiness to withstand and survive well-resourced, sophisticated cyber-attacks on the systems supporting critical missions and business operations.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><p><img src="./Systems Security Engineering5_files/iceberg.jpg" alt="iceberg"></p>
+<div class="footnote">*<span class="red">above the waterline</span> and <span class="red">below the waterline</span> problems</div><div class="remark-slide-number">8 / 42</div></div></div></div><div class="remark-slide-notes"><p>If we think of an iceberg, the visible vulnerabilities are above the waterline and the invisible ones are the ones below. It is the invisible ones that are difficult to address and can potentially sink the ship!</p>
+<p>We will refer to "above the waterline" and "below the waterline" problems</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="systems-engineering-view">Systems Engineering View</h1>
+<div class="top-right"><img src="./Systems Security Engineering5_files/math-answer-findx.gif" alt="Abstractions"></div><div class="remark-slide-number">9 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="terminology">Terminology</h1>
+<h2 id="system">System</h2>
+<p>Combination of interacting <span class="red">elements</span> organized to achieve stated purposes</p><div class="remark-slide-number">10 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="terminology">Terminology</h1>
+<h2 id="system">System</h2>
+<p>Combination of interacting <span class="red">elements</span> organized to achieve stated purposes</p>
+<h2 id="system-element">System Element</h2>
+<p>Recursively defined as a <span class="red">system</span><br>Member of a set of elements that constitute a system  </p>
+<p><em>Examples: hardware; <span class="red">software</span>; firmware; data; facilities; materials; humans; processes; and procedures</em></p><div class="remark-slide-number">11 / 42</div></div></div></div><div class="remark-slide-notes"><h1 id="system-and-system-element">System and System Element</h1>
+<ul>
+<li>The recursive definition of a system element allows us to support the notion of a system of systems.  </li>
+<li>The term <strong>system</strong> may apply to a collection of elements or a single element</li>
+<li>One observer's system may be another observer’s system element.  </li>
+</ul></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="terminology">Terminology</h1>
+<h2 id="system-of-interest">System-of-Interest</h2>
+<p>System that is the focus of the <span class="red">engineering</span> effort</p>
+<h2 id="enabling-system">Enabling System</h2>
+<p>System that supports a <span class="red">system‐of‐interest</span> during its life cycle stages but does not necessarily contribute directly to its function during operation  </p>
+<p><em>Examples: code compilers, assemblers, prototypes, test harness, unit tests</em></p><div class="remark-slide-number">12 / 42</div></div></div></div><div class="remark-slide-notes"><h1 id="system-of-interest">System of Interest</h1>
+<ul>
+<li>The term system-of-interest is used to define the set of system elements, system element interconnections, and the environment that it operates in.</li>
+</ul></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="terminology">Terminology</h1>
+<h2 id="other-systems">Other Systems</h2>
+<p>System that interacts with the <span class="red">system‐of‐interest</span> in its operational environment</p>
+<p><em>Examples: a global positioning system space vehicle being an “other system” interacting with a GPS receiver as the “system‐of‐interest.”</em></p><div class="remark-slide-number">13 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><p><img src="./Systems Security Engineering5_files/view.png" alt="NIST SP 800-160 Public Draft 2"><br>Systems Engineering View</p><div class="remark-slide-number">14 / 42</div></div></div></div><div class="remark-slide-notes"><h1 id="things-to-note-">Things to note:</h1>
+<ul>
+<li>The system of interest identification scopes the set of system elements, system element interconnections, and the environment that it operates in</li>
+<li>All <em>other systems</em> that interact with the system of interest are included in the operational environment</li>
+<li>Some enabling systems may exist outside the environment of operation, for example, the compiler used at the developer site, open source developer</li>
+</ul>
+<h1 id="can-you-think-of-_other-systems_-that-introduce-risk-">Can you think of <em>other systems</em> that introduce risk?</h1>
+<h1 id="can-you-think-of-_enabling-systems_-that-introduce-risk-">Can you think of <em>enabling systems</em> that introduce risk?</h1></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="security-engineering-perspective">Security Engineering Perspective</h1><div class="remark-slide-number">15 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="security-engineering-perspective">Security Engineering Perspective</h1>
+<h2 id="-span-class-red-security-span-"><span class="red">Security</span></h2>
+<p>Freedom from conditions that can cause <em>loss of assets</em> with <em>unacceptable consequences</em></p><div class="remark-slide-number">16 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="security-engineering-perspective">Security Engineering Perspective</h1>
+<h2 id="-span-class-red-security-span-"><span class="red">Security</span></h2>
+<p>Freedom from conditions that can cause <em>loss of assets</em> with <em>unacceptable consequences</em></p>
+<h2 id="-span-class-red-engineering-challenge-span-"><span class="red">Engineering challenge</span></h2>
+<p>Engineer <em>protection capabilities</em> for:</p>
+<ol>
+<li><span class="red">assets</span> to which security applies and</li>
+<li><span class="red">consequences</span> against which security is assessed</li>
+</ol><div class="remark-slide-number">17 / 42</div></div></div></div><div class="remark-slide-notes"><h1 id="conditions">Conditions</h1>
+<p>These can be adversity in the form of disruptions, hazards, and threats and are considered synonyms for “bad things that happen” that are of interest to systems security engineering</p>
+<h1 id="consequence">Consequence</h1>
+<p>[ISO/IEC 15026-1]
+Effect (change or non-change), usually associated with an event or condition or with the system and usually allowed, facilitated, caused, prevented, changed, or contributed to by the event, condition, or system.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="security-engineering-perspective">Security Engineering Perspective</h1>
+<h2 id="goal-_have-span-class-red-protection-capabilities-span-built-in-_">Goal: <em>have <span class="red">protection capabilities</span> built-in...</em></h2><div class="remark-slide-number">18 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="security-engineering-perspective">Security Engineering Perspective</h1>
+<h2 id="goal-_have-span-class-red-protection-capabilities-span-built-in-_">Goal: <em>have <span class="red">protection capabilities</span> built-in...</em></h2>
+<h3 id="-span-class-red-active-protections-span-"><span class="red">Active Protections</span></h3>
+<ul>
+<li><span class="red">Mechanisms</span> that exhibit security behavior with functional and performance properties to satisfy security requirements</li>
+</ul><div class="remark-slide-number">19 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="security-engineering-perspective">Security Engineering Perspective</h1>
+<h2 id="goal-_have-span-class-red-protection-capabilities-span-built-in-_">Goal: <em>have <span class="red">protection capabilities</span> built-in...</em></h2>
+<h3 id="-span-class-red-active-protections-span-"><span class="red">Active Protections</span></h3>
+<ul>
+<li><span class="red">Mechanisms</span> that exhibit security behavior with functional and performance properties to satisfy security requirements</li>
+</ul>
+<h3 id="-span-class-red-passive-protections-span-"><span class="red">Passive Protections</span></h3>
+<ul>
+<li>Provides the environment for the <span class="red">execution</span> and <span class="red">construction</span> of all mechanisms (general purpose and security)</li>
+</ul><div class="remark-slide-number">20 / 42</div></div></div></div><div class="remark-slide-notes"><h1 id="active-protection-">Active Protection:</h1>
+<p>These mechanisms explicitly satisfy security requirements that address the behavior, interaction and utilization of and among technology/machine, environment, human, and physical system elements.</p>
+<h1 id="passive-protections-">Passive Protections:</h1>
+<p>For example, developer training in secure coding provides for the construction of security mechanisms with a higher level of assurance. Similarly, a fully patched and hardened java runtime environment provides a protection capability to the hosted java applications. A visual studio complier with the appropriate compiler flags is also a passive protection.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="protection-examples">Protection Examples</h1>
+<h2 id="active-protections">Active Protections</h2>
+<ul>
+<li>Access control</li>
+<li>Single sign-on</li>
+<li>Identification</li>
+<li>Authentication</li>
+<li>Encryption at rest and in transit</li>
+<li>Configurations</li>
+<li>Backup</li>
+<li>Two-phase commit</li>
+<li>Filters/Wrappers</li>
+<li>Validators</li>
+<li>...</li>
+</ul><div class="remark-slide-number">21 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="protection-examples">Protection Examples</h1>
+<h2 id="passive-protections">Passive Protections</h2>
+<ul>
+<li>Architecture</li>
+<li>Design</li>
+<li>Coding guidelines</li>
+<li>Code review</li>
+<li>Developer and user training</li>
+<li>Verified and configured compilers</li>
+<li>Acquisition policies</li>
+<li>Red-teaming</li>
+<li>Project management</li>
+<li>Runtime environments</li>
+<li>...</li>
+</ul><div class="remark-slide-number">22 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="adequate-security">Adequate Security</h1>
+<h2 id="a-well-reasoned-sum-of-both-active-and-passive-protections">A well-reasoned sum of both active and passive protections</h2><div class="remark-slide-number">23 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="adequate-security">Adequate Security</h1>
+<h2 id="a-well-reasoned-sum-of-both-active-and-passive-protections">A well-reasoned sum of both active and passive protections</h2>
+<h3 id="for-all-span-class-red-system-execution-modes-span-">For all <span class="red">system execution modes</span></h3>
+<p>e.g., initialization, operation, maintenance, training, shutdown</p><div class="remark-slide-number">24 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="adequate-security">Adequate Security</h1>
+<h2 id="a-well-reasoned-sum-of-both-active-and-passive-protections">A well-reasoned sum of both active and passive protections</h2>
+<h3 id="for-all-span-class-red-system-execution-modes-span-">For all <span class="red">system execution modes</span></h3>
+<p>e.g., initialization, operation, maintenance, training, shutdown</p>
+<h3 id="for-all-span-class-red-system-states-span-">For all <span class="red">system states</span></h3>
+<p>e.g., secure, nonsecure, normal, degraded, recovery</p><div class="remark-slide-number">25 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="adequate-security">Adequate Security</h1>
+<h2 id="a-well-reasoned-sum-of-both-active-and-passive-protections">A well-reasoned sum of both active and passive protections</h2>
+<h3 id="for-all-span-class-red-system-execution-modes-span-">For all <span class="red">system execution modes</span></h3>
+<p>e.g., initialization, operation, maintenance, training, shutdown</p>
+<h3 id="for-all-span-class-red-system-states-span-">For all <span class="red">system states</span></h3>
+<p>e.g., secure, nonsecure, normal, degraded, recovery</p>
+<h3 id="for-all-span-class-red-transitions-span-">For all <span class="red">transitions</span></h3>
+<p>Between system states and between system execution modes.</p><div class="remark-slide-number">26 / 42</div></div></div></div><div class="remark-slide-notes"><p>For Rugged Software, <strong>gradation</strong> is important and hence reflected in our definition of <em>adequate security</em>.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle center hljs-default"><h1 id="security-engineering-framework">Security Engineering Framework</h1><div class="remark-slide-number">27 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="framework">Framework</h1>
+<h3 id="-span-class-red-problem-span-context"><span class="red">Problem</span> Context</h3>
+<p>A sufficiently complete understanding of the problem</p><div class="remark-slide-number">28 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="framework">Framework</h1>
+<h3 id="-span-class-red-problem-span-context"><span class="red">Problem</span> Context</h3>
+<p>A sufficiently complete understanding of the problem</p>
+<h3 id="-span-class-red-solution-span-context"><span class="red">Solution</span> Context</h3>
+<p>Transforms the security requirements into design requirements for the system</p><div class="remark-slide-number">29 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="framework">Framework</h1>
+<h3 id="-span-class-red-problem-span-context"><span class="red">Problem</span> Context</h3>
+<p>A sufficiently complete understanding of the problem</p>
+<h3 id="-span-class-red-solution-span-context"><span class="red">Solution</span> Context</h3>
+<p>Transforms the security requirements into design requirements for the system</p>
+<h3 id="-span-class-red-trustworthiness-span-context"><span class="red">Trustworthiness</span> Context</h3>
+<p>Evidence-based demonstration, through reasoning, that the system-of-interest is deemed trustworthy</p><div class="remark-slide-number">30 / 42</div></div></div></div><div class="remark-slide-notes"><p>The framework is independent of system type and engineering or acquisition process model and is not to be interpreted as a sequence of flows or process steps but rather as a set of interacting contexts, each with its own checks and balances</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><p><img src="./Systems Security Engineering5_files/framework.png" alt="NIST SP 800-160 Public Draft 2">  </p><div class="remark-slide-number">31 / 42</div></div></div></div><div class="remark-slide-notes"><p>Figure source: <a href="http://csrc.nist.gov/publications/drafts/800-160/sp800_160_second-draft.pdf">NIST SP 800-160 Systems Security Engineering — Public Draft 2</a></p>
+<h1 id="systems-security-engineering-framework">Systems Security Engineering Framework</h1>
+<p>Establishing problem, solution, and trustworthiness contexts as key components of a systems security engineering framework ensures that the security of a system is based on achieving a sufficiently complete understanding of the problem as defined by a set of stakeholder security objectives, security concerns, protection needs, and security requirements. This understanding is essential in order to develop effective security solutions — that is, a system that is sufficiently trustworthy and adequately secure to protect stakeholder’s assets in terms of loss and the associated consequences.</p>
+<h1 id="system-security-analyses">System security analyses</h1>
+<p>Employ concepts, principles, means, methods, processes, practices, tools, and techniques from the security perspective to provide relevant data and technical interpretations of issues from the security perspective</p>
+<p>Support gradation:<br>* Differentiated to align with the scope and objectives of where they are applied within the systems security engineering framework</p>
+<p>* Performed with a level of fidelity, rigor, and formality to produce data with a level of confidence that matches the assurance required by the stakeholders and engineering team</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="problem-context-1-2-">Problem Context (1/2)</h1>
+<h2 id="-span-class-red-security-objectives-span-"><span class="red">Security objectives</span></h2>
+<p>What it means to be <em>adequately</em> secure for the assets and the consequences of asset loss against which security will be assessed</p><div class="remark-slide-number">32 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="problem-context-1-2-">Problem Context (1/2)</h1>
+<h2 id="-span-class-red-security-objectives-span-"><span class="red">Security objectives</span></h2>
+<p>What it means to be <em>adequately</em> secure for the assets and the consequences of asset loss against which security will be assessed</p>
+<h2 id="-span-class-red-measures-of-success-span-"><span class="red">Measures of success</span></h2>
+<p>Strength of protection and level of assurance in the engineered protection capability</p><div class="remark-slide-number">33 / 42</div></div></div></div><div class="remark-slide-notes"><h1 id="security-objectives">Security Objectives</h1>
+<p>This is where you start to think of your mission/business processes. What assets are important and the consequences of asset loss against which security will be assessed.</p>
+<h1 id="security-objectives-and-measures-of-success">Security Objectives and Measures of Success</h1>
+<p>The security objectives have associated measures of success. The two combine to drive the development of security requirements and the development of assurance claims</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="problem-context-2-2-">Problem Context (2/2)</h1>
+<h2 id="-span-class-red-life-cycle-security-concepts-span-"><span class="red">Life cycle security concepts</span></h2>
+<p>Distinct contexts for interpretation of security and the associated processes, methods, and procedures</p><div class="remark-slide-number">34 / 42</div></div></div></div><div class="remark-slide-notes"><h1 id="life-cycle-security-concepts">Life cycle security concepts</h1>
+<ul>
+<li>Concept</li>
+<li>Development</li>
+<li>Production</li>
+<li>Utilization</li>
+<li>Support</li>
+<li>Retirement</li>
+</ul></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="problem-context-2-2-">Problem Context (2/2)</h1>
+<h2 id="-span-class-red-life-cycle-security-concepts-span-"><span class="red">Life cycle security concepts</span></h2>
+<p>Distinct contexts for interpretation of security and the associated processes, methods, and procedures</p>
+<h2 id="-span-class-red-security-requirements-span-"><span class="red">Security requirements</span></h2>
+<p>Specifies the functional, assurance, and strength characteristics for a protection mechanism</p><div class="remark-slide-number">35 / 42</div></div></div></div><div class="remark-slide-notes"><h1 id="life-cycle-security-concepts">Life cycle security concepts</h1>
+<ul>
+<li>Concept</li>
+<li>Development</li>
+<li>Production</li>
+<li>Utilization</li>
+<li>Support</li>
+<li>Retirement</li>
+</ul>
+<h1 id="example-of-security-requirements-">Example of Security Requirements:</h1>
+<ul>
+<li>Access Control as a functional requirement  </li>
+<li>Secure coding standards as an assurance requirement  </li>
+<li>Rigor in enforcement and granularity of access control is a strength characteristic  </li>
+<li>Rigor in the coding standard and its security relevance is a strength characteristic  </li>
+</ul></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="solution-context">Solution Context</h1>
+<h3 id="-span-class-red-define-security-aspects-of-the-solution-span-"><span class="red">Define security aspects of the solution</span>:</h3>
+<ul>
+<li>The security architecture views and viewpoints</li>
+<li>The security design</li>
+<li>Security performance verification measures</li>
+</ul>
+<h3 id="-span-class-red-realize-security-aspects-of-the-solution-span-"><span class="red">Realize security aspects of the solution</span>:</h3>
+<ul>
+<li>Implementation of the system security design</li>
+</ul>
+<h3 id="-span-class-red-evidence-for-security-aspects-of-the-solution-span-"><span class="red">Evidence for security aspects of the solution</span>:</h3>
+<ul>
+<li>Analysis, demonstration, inspection, and test</li>
+</ul><div class="remark-slide-number">36 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="trustworthiness-context">Trustworthiness Context</h1>
+<h3 id="-span-class-red-developing-and-maintaining-the-assurance-case-span-"><span class="red">Developing and maintaining the assurance case</span></h3>
+<ul>
+<li>Assurance cases are developed for claims based on the security objectives and associated measures of success</li>
+</ul>
+<h3 id="-span-class-red-demonstrating-that-the-assurance-case-is-satisfied-span-"><span class="red">Demonstrating that the assurance case is satisfied</span></h3>
+<ul>
+<li>An assurance case is a well- defined and structured set of arguments and a body of evidence showing that a system satisfies specific claims with respect to a given quality attribute</li>
+</ul><div class="remark-slide-number">37 / 42</div></div></div></div><div class="remark-slide-notes"><p>Assurance cases also provide reasoned, auditable artifacts that support the contention that a claim or set of claims is satisfied, including systematic argumentation and its underlying evidence and explicit assumptions that support the claims [ISO/IEC 15026-2]</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><p><img src="./Systems Security Engineering5_files/framework-course-topics.png" alt="NIST SP 800-160 Public Draft 2">  </p><div class="remark-slide-number">38 / 42</div></div></div></div><div class="remark-slide-notes"><p>Figure source: <a href="http://csrc.nist.gov/publications/drafts/800-160/sp800_160_second-draft.pdf">NIST SP 800-160 Systems Security Engineering — Public Draft 2</a></p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="next-up">Next Up</h1>
+<p>Constructing Assurance Cases using Goal Structuring Notation</p>
+<p>TODO: Create a <a href="https://www.lucidchart.com/">Lucidchart Account</a> using your <code class="remark-inline-code">.edu</code> email</p><div class="remark-slide-number">39 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><p><img src="./Systems Security Engineering5_files/preview.svg" alt="preview"></p><div class="remark-slide-number">40 / 42</div></div></div></div><div class="remark-slide-notes"><p>Source: This example is based on the presentation of this paper given at ICSE conference: J. B. Goodenough, C. B. Weinstock and A. Z. Klein, "Eliminative induction: A basis for arguing system confidence," 2013 35th International Conference on Software Engineering (ICSE), San Francisco, CA, 2013, pp. 1161-1164.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="systems-engineering-lifecycle-processes">Systems Engineering Lifecycle Processes</h1><div class="remark-slide-number">41 / 42</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><p><img src="./Systems Security Engineering5_files/systems-engineering-lifecycle-processes.png" alt="lifecycle processes"></p><div class="remark-slide-number">42 / 42</div></div></div></div><div class="remark-slide-notes"><p>Figure source: <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-160.pdf">NIST SP 800-160 Systems Security Engineering</a>  </p></div></div></div>
+<div class="remark-preview-area"><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="need-for-security-engineering">Need for Security Engineering</h1>
+<h2 id="vulnerabilities-within-organizations">Vulnerabilities within organizations</h2>
+<ul>
+<li>Known vulnerabilities</li>
+<li><span class="red">Unknown</span> vulnerabilities</li>
+<li><span class="red">Adversary-created</span> vulnerabilities</li>
+</ul>
+<h2 id="visible-vulnerabilities">Visible Vulnerabilities</h2>
+<ul>
+<li>Discovery and patching</li>
+</ul><div class="remark-slide-number">6 / 42</div></div></div></div><div class="remark-slide-notes"></div></div></div>
+<div class="remark-backdrop"></div>
+<div class="remark-pause" >
+  <div class="remark-pause-lozenge">
+    <span>Paused</span>
+  </div>
+</div>
+<div class="remark-help" >
+  <div class="remark-help-content">
+    <h1>Help</h1>
+    <p><b>Keyboard shortcuts</b></p>
+    <table class="light-keys">
+      <tbody><tr>
+        <td>
+          <span class="key"><b>↑</b></span>,
+          <span class="key"><b>←</b></span>,
+          <span class="key">Pg Up</span>,
+          <span class="key">k</span>
+        </td>
+        <td>Go to previous slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key"><b>↓</b></span>,
+          <span class="key"><b>→</b></span>,
+          <span class="key">Pg Dn</span>,
+          <span class="key">Space</span>,
+          <span class="key">j</span>
+        </td>
+        <td>Go to next slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">Home</span>
+        </td>
+        <td>Go to first slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">End</span>
+        </td>
+        <td>Go to last slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">b</span>&nbsp;/
+          <span class="key">m</span>&nbsp;/
+          <span class="key">f</span>
+        </td>
+        <td>Toggle blackout / mirrored / fullscreen mode</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">c</span>
+        </td>
+        <td>Clone slideshow</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">p</span>
+        </td>
+        <td>Toggle presenter mode</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">t</span>
+        </td>
+        <td>Restart the presentation timer</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">?</span>,
+          <span class="key">h</span>
+        </td>
+        <td>Toggle this help</td>
+      </tr>
+    </tbody></table>
+  </div>
+  <div class="content dismiss">
+    <table class="light-keys">
+      <tbody><tr>
+        <td>
+          <span class="key">Esc</span>
+        </td>
+        <td>Back to slideshow</td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+
+
+</body></html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://robinagandhi.github.io/swa/slides/lecture-3/requirements-for-software-se.html#1 -->
+<html class="remark-container">
+  <body class="remark-container">
+<div class="remark-notes-area">
+  <div class="remark-top-area">
+    <div class="remark-toolbar">
+      <a class="remark-toolbar-link" href="https://robinagandhi.github.io/swa/slides/lecture-3/requirements-for-software-se.html#increase">+</a>
+      <a class="remark-toolbar-link" href="https://robinagandhi.github.io/swa/slides/lecture-3/requirements-for-software-se.html#decrease">-</a>
+      <span class="remark-toolbar-timer">0:00:09</span>
+    </div>
+  </div>
+  <div class="remark-bottom-area">
+    <div class="remark-notes-current-area">
+      <div class="remark-toggle">Notes for current slide</div>
+      <div class="remark-notes"></div>
+    </div>
+    <div class="remark-notes-preview-area">
+      <div class="remark-toggle">Notes for next slide</div>
+      <div class="remark-notes-preview"></div>
+    </div>
+  </div>
+</div>
+<div class="remark-slides-area"><div class="remark-slide-container remark-visible"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="requirements-for-software-security-engineering">Requirements for Software Security Engineering</h1><div class="remark-slide-number">1 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="customer-knows-best-">Customer Knows Best!*</h1>
+<p><img src="./Requirements for SSE_files/a6c162f649bd64050235f624b0972dce.jpg" alt="business-analyst"></p>
+<div class="footnote">*or do they?</div><div class="remark-slide-number">2 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="alice-must-surely-know-">Alice must surely know...</h1>
+<p><img src="./Requirements for SSE_files/3c9aa7b06d5101301d7a001dd8b71c47" alt="dilbert-requirements"></p><div class="remark-slide-number">3 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-nist-sp-800-160-sse-http-nvlpubs-nist-gov-nistpubs-specialpublications-nist-sp-800-160-pdf-"><a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-160.pdf">NIST SP 800-160 SSE</a></h1>
+<h2 id="-span-class-green-stakeholder-needs-and-requirements-span-definition-process-"><span class="green">Stakeholder Needs and Requirements</span> Definition Process*</h2>
+<ul>
+<li><strong>Purpose:</strong> <em><span class="red">Define the stakeholder security requirements</span> that include <a href="https://robinagandhi.github.io/swa/slides/lecture-1/systems-security-engineering.html#20">protection capability</a>, security characteristics, and security-driven constraints for the systems, so as to securely provide the capabilities needed by users and other stakeholders in a defined environment.</em></li>
+</ul>
+<div class="footnote">*ISO/IEC/IEEE 15288-2015</div><div class="remark-slide-number">4 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-nist-sp-800-160-sse-http-nvlpubs-nist-gov-nistpubs-specialpublications-nist-sp-800-160-pdf-"><a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-160.pdf">NIST SP 800-160 SSE</a></h1>
+<h2 id="-span-class-green-system-requirements-span-definition-process-"><span class="green">System Requirements</span> Definition Process*</h2>
+<ul>
+<li><strong>Purpose:</strong> <em><span class="red">transform the stakeholder security requirements into the system requirements</span> that reflect a <span class="red">technical security view</span> of the system.</em></li>
+</ul>
+<div class="footnote">*ISO/IEC/IEEE 15288-2015</div><div class="remark-slide-number">5 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-stakeholder-span-needs-and-requirements"><span class="red">Stakeholder</span> Needs and Requirements</h1>
+<h2 id="litmus-test">Litmus test</h2>
+<ul>
+<li>Even if you did not build the <em>software</em> the <strong>stakeholder</strong> will still have these needs and requirements!</li>
+<li>They are located in the <a href="https://robinagandhi.github.io/swa/slides/lecture-1/systems-security-engineering.html#14">environment of operation for the system-of-interest*</a></li>
+</ul>
+<div class="footnote">* Michael Jackson, <a href="http://mcs.open.ac.uk/mj665/aserqts5.pdf">The Meaning of Requirements, 1996</a></div>
+
+<div class="top-right"><img src="./Requirements for SSE_files/Litm test.jpg" alt="litmus-test"></div><div class="remark-slide-number">6 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="need-fitness-for-purpose">Need 👉🏼 Fitness for Purpose</h1>
+<h2 id="software-is-built-for-a-purpose">Software is built for a purpose</h2>
+<ul>
+<li>It will fail if either:  </li>
+</ul>
+<ol>
+<li>Designer has inadequate understanding of the purpose  </li>
+<li>Software is used for a purpose different than originally designed for  </li>
+</ol>
+<h2 id="inadequate-understanding-of-the-purpose-leads-to-poor-quality-software">Inadequate understanding of the purpose leads to poor quality software</h2><div class="remark-slide-number">7 / 75</div></div></div></div><div class="remark-slide-notes"><h1 id="when-will-a-designer-have-inadequate-understanding-of-the-purpose-">When will a designer have inadequate understanding of the purpose?</h1>
+<h2 id="claim-designer-has-full-understanding-of-the-system-purpose">Claim: Designer has full understanding of the system purpose</h2>
+<ol>
+<li>Unless the software is too complex i.e. designer does not know for sure if software will fulfill it purpose</li>
+<li>Unless designer does not have the knowledge or experience</li>
+<li>Unless the customer does not clearly know the purpose or express it</li>
+<li>Unless the purpose becomes apparent later.</li>
+<li>Unless there is a deliberate attempt to make the software not fulfill its purpose</li>
+<li>...</li>
+</ol></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-use-cases-span-oop-uml"><span class="red">Use cases</span> -  OOP, UML</h1>
+<h2 id="-span-class-blue-why-span-and-span-class-green-how-span-and-would-span-class-orange-someone-span-use-software-"><span class="blue">Why</span> and <span class="green">how</span> and would <span class="orange">someone</span> use software?</h2>
+<ul>
+<li>Goal-driven Scenarios</li>
+<li>They describe system behavior to fulfill user needs</li>
+<li>Several <a href="http://alistair.cockburn.us/Basic+use+case+template">templates</a> available for <a href="http://alistair.cockburn.us/Structuring+use+cases+with+goals">use cases</a><br><span class="red">Purpose</span> = build requirements<br>Contents = have consistent prose<br>Plurality = include multiple scenarios per use case<br>Structure = be semi-formal  </li>
+</ul>
+<div class="top-right"><img src="./Requirements for SSE_files/figure1.png" alt="case"></div>
+<div class="remark-slide-number">8 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-user-stories-span-agile-xp-scrum"><span class="red">User stories</span> - Agile, XP, SCRUM</h1>
+<h2 id="-span-class-blue-how-span-and-span-class-green-why-span-and-would-span-class-orange-someone-span-use-software-"><span class="blue">How</span> and <span class="green">why</span> and would <span class="orange">someone</span> use software?</h2>
+<ul>
+<li>Scenarios</li>
+<li>They are about user needs</li>
+<li><a href="https://www.agilealliance.org/glossary/three-cs/">Informal</a>, <a href="http://ronjeffries.com/xprog/articles/expcardconversationconfirmation/">Card, Conversation and Confirmation</a><div class="top-right"><img src="./Requirements for SSE_files/card-front-300x225.jpg" alt="card"></div>
+</li>
+</ul><div class="remark-slide-number">9 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><p><img src="./Requirements for SSE_files/user-story-asteroids.jpg" alt="userstories"></p><div class="remark-slide-number">10 / 75</div></div></div></div><div class="remark-slide-notes"><p>Notice the reversed order of Why and How compared to User stories. Use cases are goal-driven for scenario elicitation. On the other hand User stories are scenario driven elicitation technique that link scenarios to goals.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="-what-is-requirements-engineering-http-www-cs-toronto-edu-sme-re01-"><a href="http://www.cs.toronto.edu/~sme/RE01/">What is Requirements Engineering?</a></h1>
+<div class="footnote">See notes (hit <code class="remark-inline-code">p</code>) for definition</div><div class="remark-slide-number">11 / 75</div></div></div></div><div class="remark-slide-notes"><h1 id="requirements-engineering">Requirements Engineering</h1>
+<ul>
+<li>Requirements Engineering (RE) lies at the heart of software development.</li>
+<li>RE is concerned with identifying the purpose of a software system, and the contexts in which it will be used.</li>
+<li>Hence, RE acts as the bridge between the real world needs of users, customers, and other constituencies affected by a software system, and the capabilities and opportunities afforded by software-intensive technologies.
+Source: <a href="http://www.cs.toronto.edu/~sme/RE01/">http://www.cs.toronto.edu/~sme/RE01/</a></li>
+</ul></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="stakeholder-needs-and-requirements">Stakeholder Needs and Requirements</h1>
+<h2 id="these-requirements-are-about-span-class-red-relationships-span-in-the-environment-of-operation">These requirements are about <span class="red">relationships</span> in the environment of operation</h2>
+<ul>
+<li>They are not about the software system</li>
+<li>They are not about the shared interface at the environment of operation and the software system</li>
+<li>They are effects in the environment of operation that the customer wants the software system to guarantee</li>
+</ul><div class="remark-slide-number">12 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="stakeholder-needs-and-requirements">Stakeholder Needs and Requirements</h1>
+<h2 id="expressed-in-two-moods">Expressed in two moods</h2>
+<ul>
+<li><span class="red">Optative</span>: expresses a wish (R)<br>Desired condition over the phenomena of the environment</li>
+<li><span class="red">Indicative</span>: expresses things existing in the problem world (D)<br>Given properties of the environment</li>
+</ul><div class="remark-slide-number">13 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="system-requirements">System Requirements</h1>
+<h2 id="expressed-in-a-single-mood">Expressed in a single mood</h2>
+<ul>
+<li><span class="red">Optative</span>: expresses a wish, Specification (S)<br>Desired condition over the shared phenomena at the interface between the system and the environment of operation</li>
+</ul><div class="remark-slide-number">14 / 75</div></div></div></div><div class="remark-slide-notes"><p>Based on this definition we are never really describing anything in the system beyond the shared phenomena at the interface of the system and the environment of operation.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="problem-frames">Problem Frames</h1>
+<p>Allows focus on <code class="remark-inline-code">problems</code> to be solved.</p><div class="remark-slide-number">15 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="problem-frames">Problem Frames</h1>
+<h2 id="frame-diagrams">Frame Diagrams</h2>
+<div class="left-column"><h4 id="-span-class-green-rectangle-with-double-vertical-stripe-span-machine-to-be-developed"><span class="green">Rectangle with double vertical stripe</span>: Machine to be developed</h4>
+<h4 id="-span-class-green-rectangle-with-single-vertical-stripe-span-designed-domain"><span class="green">Rectangle with single vertical stripe</span>: Designed domain</h4>
+<h4 id="-span-class-green-plain-rectangles-span-given-domains-things-that-already-exist-"><span class="green">Plain rectangles</span>: Given domains (things that already exist)</h4>
+<h4 id="-span-class-green-dashed-oval-span-requirements"><span class="green">Dashed oval</span>: Requirements</h4>
+</div>
+<div class="right-column"><img src="./Requirements for SSE_files/legend.svg" alt="legend"></div><div class="remark-slide-number">16 / 75</div></div></div></div><div class="remark-slide-notes"><ul>
+<li>Problem frames are described by frame diagrams, which basically consist of rectangles and links between these</li>
+<li>The task is to construct a machine that influences the behavior of the problem domain it is integrated in</li>
+</ul></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="problem-frames">Problem Frames</h1>
+<h2 id="frame-diagrams">Frame Diagrams</h2>
+<div class="left-column"><h4 id="-span-class-red-solid-line-span-interfaces-that-consist-of-shared-phenomena"><span class="red">Solid line</span>: Interfaces that consist of shared phenomena</h4>
+<h4 id="-span-class-red-dashed-line-span-a-requirements-reference-to-a-domain"><span class="red">Dashed line</span>: A requirements reference to a domain</h4>
+<h4 id="-span-class-red-dashed-arrow-span-a-constraining-reference"><span class="red">Dashed arrow</span>: A constraining reference</h4>
+</div>
+<div class="right-column"><img src="./Requirements for SSE_files/legend.svg" alt="legend"></div><div class="remark-slide-number">17 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="problem-frames">Problem Frames</h1>
+<ul>
+<li>The machine solves a problem in the application domain (part of the world)</li>
+<li>The machine and the application domain interact at an interface of shared phenomena (events, states)</li>
+<li>The requirement adds a constraint to the application domain’s intrinsic properties or behavior</li>
+</ul>
+<p><img src="./Requirements for SSE_files/problem-frame.svg" alt="legend"></p><div class="remark-slide-number">18 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="problem-frame-example">Problem Frame Example</h1>
+<ul>
+<li>A PC user wants to analyze the messages in the<br>mail client’s mailbox.</li>
+<li>The messages for each correspondent are concatenated<br>in one file. The mailfiles are all in one directory</li>
+<li>The analysis report has a specified format, with<br>detail lines in order by correspondent name</li>
+<li>The analysis report will also show statistics on volume, size<br>and frequency of incoming messages, time taken to reply</li>
+</ul>
+<div class="footnote">Source: Problem Frames, Addison Wesley, 2001</div><div class="remark-slide-number">19 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="context-diagram">Context Diagram</h1>
+<p><img src="./Requirements for SSE_files/example.svg" alt="example"></p>
+<div class="footnote">Recap: Requirements are about <span class="red">relationships</span> in the application domain</div><div class="remark-slide-number">20 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="relationships">Relationships</h1>
+<div class="left-column"><p>Annotation <span class="code">c:D!{E3}</span> means Domain <span class="code">D</span> initiates the observable phenomena <span class="code">E3</span> on interface <span class="code">c</span>.</p>
+<p>Example:<br><span class="code">a: MF! {MsgDir, File, Char}</span>  </p>
+<p>Domain <span class="code">MF</span> initiates observable phenomena <span class="code">MsgDir, File, Char</span> on interface <span class="code">a</span></p>
+</div>
+<div class="right-column"><img src="./Requirements for SSE_files/example.svg" alt="example"></div><div class="remark-slide-number">21 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="frame-components">Frame Components</h1>
+<div class="left-column"><h3 id="-span-class-red-r-requirements-span-"><span class="red">R: Requirements</span></h3>
+<p>What the customer wants to be true in terms of (c, d)</p>
+<h3 id="-span-class-red-d-domain-properties-span-"><span class="red">D: Domain Properties</span></h3>
+<p>What we know to be true in the domain</p>
+<h3 id="-span-class-red-s-specification-span-"><span class="red">S: Specification</span></h3>
+<p>How we want the machine to behave at interface (a, b)  </p>
+</div>
+
+<div class="right-column"><img src="./Requirements for SSE_files/example.svg" alt="example"></div><div class="remark-slide-number">22 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="correctness-argument">Correctness argument</h1>
+<h2 id="s-x2192-d-r">S → D, R</h2>
+<ul>
+<li>The argument to make:<br><em>(R)equirements</em>, <em>(S)pecifications</em> and <em>(D)omain descriptions</em> <span class="red">fit</span> together</li>
+</ul><div class="remark-slide-number">23 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="correctness-argument">Correctness argument</h1>
+<h2 id="creating-r-is-not-enough-">Creating (R) is not enough !!</h2>
+<ul>
+<li>Creating descriptions of the environment (D) and specification (S) helps our comprehension and provides basis for <span class="red">validating</span> the requirements</li>
+</ul><div class="remark-slide-number">24 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="correctness-argument">Correctness argument</h1>
+<h2 id="creating-r-is-not-enough-">Creating (R) is not enough !!</h2>
+<ul>
+<li>Creating descriptions of the environment (D) and specification (S) helps our comprehension and provides basis for <span class="red">validating</span> the requirements</li>
+</ul>
+<h2 id="claim-r-is-fulfilled">Claim: R is fulfilled</h2>
+<ul>
+<li>Unless D or S is Insufficient *</li>
+<li>Unless D or S is Malicious *</li>
+<li>Unless D or S is Incorrect *</li>
+</ul>
+<div class="footnote">* Eliminative Induction</div><div class="remark-slide-number">25 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="fitness-for-purpose-s-x2192-d-r">Fitness for Purpose: S → D, R</h1>
+<h2 id="under-constrained-behavior">Under constrained behavior</h2>
+<ul>
+<li>(S, D) lacks constraints to fulfill (R)<br>E.g.: Buffer overflows, Unauthorized physical/network access</li>
+</ul><div class="remark-slide-number">26 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="fitness-for-purpose-s-x2192-d-r">Fitness for Purpose: S → D, R</h1>
+<h2 id="under-constrained-behavior">Under constrained behavior</h2>
+<ul>
+<li>(S, D) lacks constraints to fulfill (R)<br>E.g.: Buffer overflows, Unauthorized physical/network access</li>
+</ul>
+<h2 id="over-constrained-behavior">Over constrained behavior</h2>
+<ul>
+<li>(S, D) includes constraints such that (R) CANNOT be fulfilled<br>E.g: 8 char password only, No access allowed</li>
+</ul><div class="remark-slide-number">27 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="problem-frames">Problem Frames</h1>
+<p><img src="./Requirements for SSE_files/example-annotated.png" alt="annotated"></p><div class="remark-slide-number">28 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="how-to-systematically-reason-about-these-issues-">How to systematically reason about these issues?</h1>
+<ul>
+<li>Solution: Abuse frames</li>
+</ul>
+<div class="footnote">Technical Report No: 2003/10, <a href="http://mcs.open.ac.uk/mj665/Abuse00.pdf">Analysing Security Threats and Vulnerabilities Using Abuse Frames</a>, L.Lin, B.A.Nuseibeh, D.C.Ince, M.Jackson, J.D.Moffett, October 2003</div>
+<div class="remark-slide-number">29 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="abuse-frame">Abuse Frame</h1>
+<p><img src="./Requirements for SSE_files/abuse-frame.png" alt="af"></p>
+<h2 id="abuse-argument">Abuse argument</h2>
+<ul>
+<li>The malicious machine specification (MS), satisfies the vulnerability conditions (v(D)), to achieve the anti-requirement (AR). MS → v(D), AR</li>
+</ul><div class="remark-slide-number">30 / 75</div></div></div></div><div class="remark-slide-notes"><h1 id="example-1-">Example 1:</h1>
+<h2 id="m-m-wireshark">M/M: Wireshark</h2>
+<h2 id="as-network-messages">AS: Network messages</h2>
+<h2 id="at-rouge-isp">AT: Rouge ISP</h2>
+<h2 id="ar-targeted-advertising">AR: Targeted Advertising</h2>
+<h1 id="example-2-">Example 2:</h1>
+<h2 id="m-m-fbi-website-with-sql-injection-vulnerability">M/M: FBI Website with SQL injection vulnerability</h2>
+<h2 id="as-identity-database">AS: Identity Database</h2>
+<h2 id="at-lulzsec">AT: Lulzsec</h2>
+<h2 id="ar-threaten-fbi-agents-through-identity-theft">AR: Threaten FBI Agents through identity theft</h2></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="abuse-frame">Abuse Frame</h1>
+<h2 id="malicious-machine-m-m-">Malicious Machine (M/M)</h2>
+<ul>
+<li>Can be assigned to an existing domain, or a domain that is introduced into the problem world in order to reflect that an attacker can utilize the existing domains or other tools (e.g., a virus) that are not originally in the problem world D.</li>
+</ul>
+<h2 id="vulnerability-v-d-">Vulnerability v(D)</h2>
+<ul>
+<li>Conditions in the problem world that combined with the Malicious Machine specification, will satisfy the anti-requirements</li>
+<li>An instance of the problem world that gives rise to an opportunity for attacks</li>
+</ul><div class="remark-slide-number">31 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="abuse-frame-1-mailfile-example-">Abuse Frame 1 (mailfile example)</h1>
+<p><img src="./Requirements for SSE_files/example-af-2.png" alt="abuse"></p>
+<h2 id="-span-class-center-ms-v-d-ar-span-"><span class="center">MS → v(D), AR</span></h2><div class="remark-slide-number">32 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="security-problem-frame">Security Problem Frame</h1>
+<p><img src="./Requirements for SSE_files/security-problem-frame.png" alt="spf"></p>
+<h2 id="correctness-argument">Correctness argument</h2>
+<ul>
+<li>For an attacker (A), the specification of the Security Machine (SM) satisfies the security requirement (SR)<br>SM → A, SR</li>
+</ul><div class="remark-slide-number">33 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="security-frame-mailfile-example-">Security Frame (mailfile example)</h1>
+<p><img src="./Requirements for SSE_files/example-sf.png" alt="sfmailfile"></p><div class="remark-slide-number">34 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="comparison">Comparison</h1>
+<div class="left-column"><h2 id="abuse-frame">Abuse Frame</h2>
+<p><img src="./Requirements for SSE_files/example-af-2.png" alt="abuse"></p>
+</div>
+<div class="right-column"><h2 id="security-frame">Security Frame</h2>
+<p><img src="./Requirements for SSE_files/example-sf.png" alt="sfmailfile"></p>
+</div><div class="remark-slide-number">35 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="iterative-process">Iterative Process</h1>
+<h2 id="another-abuse-frame">Another Abuse Frame</h2>
+<p><img src="./Requirements for SSE_files/example-af-3.png" alt="abuse"></p><div class="remark-slide-number">36 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="iterative-process">Iterative Process</h1>
+<h2 id="counter-with-another-security-frame">Counter with another Security Frame</h2>
+<p><img src="./Requirements for SSE_files/example-sf-2.png" alt="secure"></p><div class="remark-slide-number">37 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="iterative-process">Iterative Process</h1>
+<h2 id="yet-another-abuse-frame-">Yet another Abuse Frame!</h2>
+<p><img src="./Requirements for SSE_files/example-af.png" alt="abuse"></p><div class="remark-slide-number">38 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="the-design-problem">The Design Problem</h1>
+<h2 id="what-security-functions-capabilities-exist-in-the-software-i-e-specification-s-such-that-given-d-r-is-satisfiable-">What security functions/capabilities exist in the software, i.e. Specification (S), such that given (D), (R) is satisfiable?</h2>
+<ul>
+<li>Security functions (Security Functional Requirements)  </li>
+<li>No exploitable weaknesses (Assurance Requirements)  </li>
+</ul>
+<h2 id="s-x2192-d-r">S → D, R</h2>
+<p>S is resilient to attacks, when D includes an Attacker (A) trying to implement (AR)</p><div class="remark-slide-number">39 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="functional-security-requirements">Functional Security Requirements</h1>
+<h2 id="security-functions-in-the-specification-s-">Security functions in the specification (S)</h2>
+<p>E.g. Encryption module, access control</p>
+<h2 id="security-constraints-on-the-problem-world-d-">Security constraints on the problem world (D)</h2>
+<p>E.g. Controlled physical access, access logs, cleared user base, authorization db</p><div class="remark-slide-number">40 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="assurance-security-requirements">Assurance Security Requirements</h1>
+<h2 id="weaknesses-avoided-in-security-functions-of-the-specification-s-">Weaknesses avoided in security functions of the specification (S)</h2>
+<p>E.g. Injection, memory issues, weak crypto algorithms or implementation<br>E.g. <em>For openSSL</em>: Encryption module minimizes exploitable buffer overflow weaknesses to an acceptable level  </p>
+<h2 id="weaknesses-avoided-in-the-problem-world-d-">Weaknesses avoided in the problem world (D)</h2>
+<p>E.g. password sticky notes, guessable passwords, ad-hoc authorizations, poor clearance processes</p><div class="remark-slide-number">41 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="more-examples">More Examples</h1>
+<div class="left-column"><h2 id="functional">Functional</h2>
+<ul>
+<li>Access control</li>
+<li>Identification</li>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Cryptographic APIs</li>
+<li>Sandboxing</li>
+<li>Configuration mgmt.</li>
+<li>Patch and Vuln mgmt.</li>
+<li>Physical Access Control</li>
+</ul>
+</div>
+<div class="right-column"><h2 id="assurance">Assurance</h2>
+<ul>
+<li>Input validation</li>
+<li>Exception handling</li>
+<li>TOUTOC</li>
+<li>Resistance to Common attack patterns</li>
+<li>Weak Crypto avoided</li>
+<li>Resistance to Memory issues</li>
+<li>Social Engineering thwarted</li>
+</ul>
+</div><div class="remark-slide-number">42 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="reflection">Reflection</h1>
+<h2 id="what-did-we-just-do-">What did we just do?</h2>
+<ul>
+<li>Using problem frames we built a bridge from stakeholder requirements to system requirements by identifying the necessary causal chains in the problem world.</li>
+<li>Using abuse and security frames we identify the causal chains and <span class="green">security capabilities and assurances necessary in software</span> to satisfy the <span class="blue">security requirements of the stakeholder.</span></li>
+</ul>
+<div class="top-right"><img src="./Requirements for SSE_files/oshima_bridge1.jpg" alt="bridge"></div><div class="remark-slide-number">43 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="abstractions-for-security-requirements-elicitation">Abstractions for Security Requirements Elicitation</h1>
+<div class="top-right"><img src="./Requirements for SSE_files/a6c162f649bd64050235f624b0972dce.jpg" alt="business-analyst"></div><div class="remark-slide-number">44 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="security-requirement-sources">Security Requirement Sources</h1>
+<h2 id="security-policies">Security Policies</h2>
+<ul>
+<li>Stakeholder Security Needs</li>
+<li>Auditing Needs</li>
+<li><a href="http://static1.1.sqspcdn.com/static/f/702523/26767149/1451886707923/201601-Gandhi.pdf?token=l4NhzGQJsXEqUX7CIOwzoK5au%2BM%3D">Certification Needs</a></li>
+<li>Survivability and Maintainability Needs</li>
+</ul>
+<h2 id="risk-assessment">Risk assessment</h2>
+<ul>
+<li>Data, Software, Human or Organization, and Physical assets</li>
+</ul>
+<h2 id="assurance-needs">Assurance Needs</h2>
+<h2 id="deception-needs">Deception Needs</h2><div class="remark-slide-number">45 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="primary-elicitation-techniques">Primary elicitation techniques</h1>
+<h2 id="1-goal-driven-approach">1. Goal-driven approach</h2>
+<ul>
+<li>Attacker goal is to violate security expectations</li>
+<li><a href="https://www.info.ucl.ac.be/~avl/files/avl-Icse04-AntiGoals.pdf">Anti-goals</a>, <a href="https://www.schneier.com/academic/archives/1999/12/attack_trees.html">Attack Trees</a>, <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.103.2997&amp;rep=rep1&amp;type=pdf">N-SoftGoals</a></li>
+</ul><div class="remark-slide-number">46 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="primary-elicitation-techniques">Primary elicitation techniques</h1>
+<h2 id="1-goal-driven-approach">1. Goal-driven approach</h2>
+<ul>
+<li>Attacker goal is to violate security expectations</li>
+<li><a href="https://www.info.ucl.ac.be/~avl/files/avl-Icse04-AntiGoals.pdf">Anti-goals</a>, <a href="https://www.schneier.com/academic/archives/1999/12/attack_trees.html">Attack Trees</a>, <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.103.2997&amp;rep=rep1&amp;type=pdf">N-SoftGoals</a></li>
+</ul>
+<h2 id="2-scenario-driven-approach">2. Scenario-driven approach</h2>
+<ul>
+<li>Negative scenarios (desired future experience, story grounded in real world, thread through a model)</li>
+<li><a href="http://www.scenarioplus.org.uk/papers/misuse_cases_ieee_jan_2003.pdf">Misuse cases</a>, <a href="http://mcs.open.ac.uk/mj665/Abuse00.pdf">Abuse frames</a>, <a href="https://msdn.microsoft.com/en-us/library/ee823878%28v=cs.20%29.aspx">Keywords/checklists</a></li>
+</ul><div class="remark-slide-number">47 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="primary-elicitation-techniques">Primary elicitation techniques</h1>
+<h2 id="1-goal-driven-approach">1. Goal-driven approach</h2>
+<ul>
+<li>Attacker goal is to violate security expectations</li>
+<li><a href="https://www.info.ucl.ac.be/~avl/files/avl-Icse04-AntiGoals.pdf">Anti-goals</a>, <a href="https://www.schneier.com/academic/archives/1999/12/attack_trees.html">Attack Trees</a>, <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.103.2997&amp;rep=rep1&amp;type=pdf">N-SoftGoals</a></li>
+</ul>
+<h2 id="2-scenario-driven-approach">2. Scenario-driven approach</h2>
+<ul>
+<li>Negative scenarios (desired future experience, story grounded in real world, thread through a model)</li>
+<li><a href="http://www.scenarioplus.org.uk/papers/misuse_cases_ieee_jan_2003.pdf">Misuse cases</a>, <a href="http://mcs.open.ac.uk/mj665/Abuse00.pdf">Abuse frames</a>, <a href="https://msdn.microsoft.com/en-us/library/ee823878%28v=cs.20%29.aspx">Keywords/checklists</a></li>
+</ul>
+<h2 id="3-viewpoint-oriented-approach">3. Viewpoint-oriented approach</h2>
+<ul>
+<li><a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1048526">Cross-cutting views</a>, <a href="http://www.panda.sys.t.u-tokyo.ac.jp/kushiro/ReferencePaper/Requirements%20engineering/00487319.pdf">conflicts</a></li>
+<li>Attacker views, security properties, tradeoffs</li>
+</ul><div class="remark-slide-number">48 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-use-cases-span-oop-uml"><span class="red">Use cases</span> -  OOP, UML</h1>
+<h2 id="-span-class-green-why-span-and-span-class-blue-how-span-would-span-class-orange-someone-span-use-software-"><span class="green">Why</span> and <span class="blue">how</span> would <span class="orange">someone</span> use software?</h2>
+<ul>
+<li>Goal-driven Scenarios</li>
+<li>They describe system behavior to fulfill user needs</li>
+<li>Several <a href="http://alistair.cockburn.us/Basic+use+case+template">templates</a> available for <a href="http://alistair.cockburn.us/Structuring+use+cases+with+goals">use cases</a><br><span class="red">Purpose</span> = build requirements<br>Contents = have consistent prose<br>Plurality = include multiple scenarios per use case<br>Structure = be semi-formal  </li>
+</ul>
+<div class="top-right"><img src="./Requirements for SSE_files/figure1.png" alt="case"></div><div class="remark-slide-number">49 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="scenarios-uml-use-cases">Scenarios: UML Use Cases</h1>
+<h2 id="examine-concrete-scenarios-of-system-use">Examine concrete scenarios of system use</h2>
+<ul>
+<li>Actors and Use Cases</li>
+<li><span class="red">Associate</span> actors/users to the use cases</li>
+<li>Relate actors using <span class="red">generalization</span> and <span class="red">realization</span></li>
+<li>Relate use cases using <span class="red">dependencies</span></li>
+<li>Use cases have verbs or noun-verb pairs in it</li>
+</ul><div class="remark-slide-number">50 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="use-case-diagram">Use Case Diagram</h1>
+<p><img src="./Requirements for SSE_files/usecase-legend.svg" alt="usecase"></p><div class="remark-slide-number">51 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="use-case-diagram">Use Case Diagram</h1>
+<h2 id="relationships">Relationships</h2>
+<div class="left-column"><img src="./Requirements for SSE_files/association.svg" alt="association"></div>
+<div class="right-column"><img src="./Requirements for SSE_files/specialization.svg" alt="specialization"></div><div class="remark-slide-number">52 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="use-case-diagram">Use Case Diagram</h1>
+<div class="left-column"><img src="./Requirements for SSE_files/usecase.svg" alt="usecase"></div><div class="remark-slide-number">53 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="mis-use-case-diagram">Mis Use Case Diagram</h1>
+<h2 id="misuser">Misuser</h2>
+<p>An actor that initiates misuse cases, either intentionally or inadvertently.</p><div class="remark-slide-number">54 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="mis-use-case-diagram">Mis Use Case Diagram</h1>
+<h2 id="misuser">Misuser</h2>
+<p>An actor that initiates misuse cases, either intentionally or inadvertently.</p>
+<h2 id="misuse-case">Misuse Case</h2>
+<p>A sequence of actions, including variants, that a system or other entity can perform, interacting with misusers of the entity and causing harm to some stakeholder if the sequence is allowed to complete</p>
+<p>Extension to the UML use cases modeling language</p><div class="remark-slide-number">55 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="misuse-case-diagram">Misuse Case Diagram</h1>
+<p><img src="./Requirements for SSE_files/misuse-legend.svg" alt="misusecase"></p><div class="remark-slide-number">56 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="misuse-case-diagram">Misuse Case Diagram</h1>
+<p><img src="./Requirements for SSE_files/misuse-1.svg" alt="misusecase"></p><div class="remark-slide-number">57 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="misuse-case-diagram">Misuse Case Diagram</h1>
+<p><img src="./Requirements for SSE_files/misuse-2.svg" alt="misusecase"></p><div class="remark-slide-number">58 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="misuse-case-diagram">Misuse Case Diagram</h1>
+<p><img src="./Requirements for SSE_files/misuse-3.svg" alt="misusecase"></p><div class="remark-slide-number">59 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="misuse-case-diagram">Misuse Case Diagram</h1>
+<p><img src="./Requirements for SSE_files/misuse-5.svg" alt="misusecase"></p><div class="remark-slide-number">60 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="misuse-case">Misuse Case</h1>
+<h2 id="construction-steps">Construction Steps</h2>
+<h3 id="step-1">Step 1</h3>
+<p>Include normal actors and the required use cases regardless of any security considerations</p>
+<h3 id="step-2">Step 2</h3>
+<p>Introduce the major mis-actors and misuse cases, i.e., threats that are reasonably likely. Name should give a clear understanding of motivation</p><div class="remark-slide-number">61 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="misuse-case">Misuse Case</h1>
+<h2 id="construction-steps">Construction Steps</h2>
+<h3 id="step-3">Step 3</h3>
+<p>Investigate the potential relations between misuse cases and use cases, especially in terms of potential “includes”-relations. Many threats can realized by a system’s normal functionality. E.g. denial of service, covert channels, sql injection</p>
+<h3 id="step-4">Step 4</h3>
+<p>Introduce new use cases with the purpose to detect or prevent misuse cases</p><div class="remark-slide-number">62 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="misuse-case">Misuse Case</h1>
+<h2 id="construction-steps">Construction Steps</h2>
+<h3 id="step-5">Step 5</h3>
+<p>Make a detailed requirements <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.8190&amp;rep=rep1&amp;type=pdf">documentation</a></p><div class="remark-slide-number">63 / 75</div></div></div></div><div class="remark-slide-notes"><p>We will not do this step to keep the process lightweight. But you know how to do it if required.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="requirements-and-risk">Requirements and Risk</h1><div class="remark-slide-number">64 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="risk">Risk</h1>
+<p><img src="./Requirements for SSE_files/risk.png" alt="risk"></p><div class="remark-slide-number">65 / 75</div></div></div></div><div class="remark-slide-notes"><p>This is the language of risk. Goals, Scenarios and viewpoints are the language of requirements. However our understanding always lacks an explicit traceability from the security requirements to the risk components. By building abuse and misuse models we make this relationship explicit.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="the-design-activity">The Design Activity</h1>
+<p><img src="./Requirements for SSE_files/requirements-risk.png" alt="risk"></p><div class="remark-slide-number">66 / 75</div></div></div></div><div class="remark-slide-notes"><p>A model that helps to understanding security requirements in terms of related risk components is absolutely necessary. It can establish the necessity and sufficiency of security requirements in the given context.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle center hljs-default"><h1 id="questions-">Questions?</h1>
+<p><img src="./Requirements for SSE_files/giphy.gif" alt="questions"></p><div class="remark-slide-number">67 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="misuse-case-exercise">Misuse Case Exercise</h1><div class="remark-slide-number">68 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h3 id="_skip-this-step-if-you-already-have-a-lucidchart-account-_"><em>Skip this step if you already have a Lucidchart account.</em></h3>
+<h1 id="step-1">Step 1</h1>
+<h2 id="create-an-account-on-lucidchart-https-www-lucidchart-com-using-your-edu-email">Create an account on <a href="https://www.lucidchart.com/">Lucidchart</a> using your <code class="remark-inline-code">.edu</code> email</h2>
+<ul>
+<li>OR Request an upgrade here: <a href="https://www.lucidchart.com/pages/usecase/education-request">https://www.lucidchart.com/pages/usecase/education-request</a></li>
+</ul><div class="remark-slide-number">69 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-2">Step 2</h1>
+<h2 id="recall-the-assurance-case-assignment">Recall the assurance case assignment</h2>
+<ul>
+<li>You picked 5 claims related to your project and built assurance cases for each.</li>
+</ul><div class="remark-slide-number">70 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-3">Step 3</h1>
+<h2 id="elaborate-the-top-5-claims-using-misuse-cases">Elaborate the top 5 claims using Misuse cases</h2>
+<ul>
+<li>Contextualize the security function or security weakness addressed in your assurance cases</li>
+<li>Use misuse cases to elaborated on additional security functions</li>
+</ul>
+<h2 id="click-on-this-template-https-www-lucidchart-com-invitations-accept-59a6e092-49bd-4af3-80be-a1f0862923e5-to-start-a-new-misuse-case">Click on this <a href="https://www.lucidchart.com/invitations/accept/59a6e092-49bd-4af3-80be-a1f0862923e5">template</a> to start a new misuse case</h2><div class="remark-slide-number">71 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-4">Step 4</h1>
+<h2 id="submit-links-to-your-misuse-cases-developed-in-lucidchart">Submit links to your misuse cases developed in Lucidchart</h2>
+<ul>
+<li>Submission of the links on Canvas</li>
+<li>One submission per team</li>
+<li>Clearly indicate which claims are elaborated by which misuse cases</li>
+</ul><div class="remark-slide-number">72 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="grading-criteria">Grading criteria</h1>
+<h2 id="use-of-proper-notations">Use of proper notations</h2>
+<ul>
+<li>Misuse case notation</li>
+</ul>
+<h2 id="argument-quality">Argument Quality</h2>
+<ul>
+<li>Misuse cases help elaborate additional security functions related to the top 5 claims</li>
+</ul>
+<h2 id="due-date">Due Date</h2>
+<p><span class="red">Friday, October 6th, 2017</span></p><div class="remark-slide-number">73 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="generating-shareable-links-on-lucidchart">Generating shareable links on Lucidchart</h1>
+<p><img src="./Requirements for SSE_files/sharing.png" alt="sharing"></p><div class="remark-slide-number">74 / 75</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="resources">Resources</h1>
+<ol>
+<li>These slides!</li>
+<li>Reading on Mis-use case</li>
+<li>The <a href="http://capec.mitre.org/data/graphs/1000.html">Common Attack Pattern Enumeration and Classification (CAPEC)</a> as a reference for common attacks</li>
+</ol><div class="remark-slide-number">75 / 75</div></div></div></div><div class="remark-slide-notes"></div></div></div>
+<div class="remark-preview-area"><div class="remark-slide-container remark-fading"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="customer-knows-best-">Customer Knows Best!*</h1>
+<p><img src="./Requirements for SSE_files/a6c162f649bd64050235f624b0972dce.jpg" alt="business-analyst"></p>
+<div class="footnote">*or do they?</div><div class="remark-slide-number">2 / 75</div></div></div></div><div class="remark-slide-notes"></div></div></div>
+<div class="remark-backdrop"></div>
+<div class="remark-pause" >
+  <div class="remark-pause-lozenge">
+    <span>Paused</span>
+  </div>
+</div>
+<div class="remark-help" >
+  <div class="remark-help-content">
+    <h1>Help</h1>
+    <p><b>Keyboard shortcuts</b></p>
+    <table class="light-keys">
+      <tbody><tr>
+        <td>
+          <span class="key"><b>↑</b></span>,
+          <span class="key"><b>←</b></span>,
+          <span class="key">Pg Up</span>,
+          <span class="key">k</span>
+        </td>
+        <td>Go to previous slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key"><b>↓</b></span>,
+          <span class="key"><b>→</b></span>,
+          <span class="key">Pg Dn</span>,
+          <span class="key">Space</span>,
+          <span class="key">j</span>
+        </td>
+        <td>Go to next slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">Home</span>
+        </td>
+        <td>Go to first slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">End</span>
+        </td>
+        <td>Go to last slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">b</span>&nbsp;/
+          <span class="key">m</span>&nbsp;/
+          <span class="key">f</span>
+        </td>
+        <td>Toggle blackout / mirrored / fullscreen mode</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">c</span>
+        </td>
+        <td>Clone slideshow</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">p</span>
+        </td>
+        <td>Toggle presenter mode</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">t</span>
+        </td>
+        <td>Restart the presentation timer</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">?</span>,
+          <span class="key">h</span>
+        </td>
+        <td>Toggle this help</td>
+      </tr>
+    </tbody></table>
+  </div>
+  <div class="content dismiss">
+    <table class="light-keys">
+      <tbody><tr>
+        <td>
+          <span class="key">Esc</span>
+        </td>
+        <td>Back to slideshow</td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+
+
+</body></html>

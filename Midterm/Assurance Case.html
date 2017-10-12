@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://robinagandhi.github.io/swa/slides/lecture-2/assurance-case.html#1 -->
+<html class="remark-container">
+  <body class="remark-container">
+  <div class="remark-top-area">
+    <div class="remark-toolbar">
+      <a class="remark-toolbar-link" href="https://robinagandhi.github.io/swa/slides/lecture-2/assurance-case.html#increase">+</a>
+      <a class="remark-toolbar-link" href="https://robinagandhi.github.io/swa/slides/lecture-2/assurance-case.html#decrease">-</a>
+      <span class="remark-toolbar-timer">0:00:00</span>
+    </div>
+  </div>
+  <div class="remark-bottom-area">
+    <div class="remark-notes-current-area">
+      <div class="remark-toggle">Notes for current slide</div>
+      <div class="remark-notes"><p>This slide deck is based several sources as follows:</p>
+<ol>
+<li>Goal Structuring Notation</li>
+<li><a href="https://www.iso.org/standard/52926.html">IEEE Standard— Adoption of ISO/IEC 15026-2:2011</a>
+Systems and Software Engineering— Systems and Software Assurance— Part 2: Assurance Case</li>
+<li>Research papers on Eliminative Induction use in Assurance Cases</li>
+<li>SEI publications on Assurance case use in Safety Cases</li>
+</ol></div>
+    </div>
+    <div class="remark-notes-preview-area">
+      <div class="remark-toggle">Notes for next slide</div>
+      <div class="remark-notes-preview"></div>
+    </div>
+  </div>
+</div>
+<div class="remark-slides-area"><div class="remark-slide-container remark-visible"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="assurance-case-">Assurance Case*</h1>
+<div class="footnote">* See notes for sources</div><div class="remark-slide-number">1 / 117</div></div></div></div><div class="remark-slide-notes"><p>This slide deck is based several sources as follows:</p>
+<ol>
+<li>Goal Structuring Notation</li>
+<li><a href="https://www.iso.org/standard/52926.html">IEEE Standard— Adoption of ISO/IEC 15026-2:2011</a>
+Systems and Software Engineering— Systems and Software Assurance— Part 2: Assurance Case</li>
+<li>Research papers on Eliminative Induction use in Assurance Cases</li>
+<li>SEI publications on Assurance case use in Safety Cases</li>
+</ol></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h2 id="the-first-principle-is-that-you-must-not-fool-yourself-and-you-are-the-easiest-person-to-fool-after-you-ve-not-fooled-yourself-it-s-easy-not-to-fool-other-scientists-">The first principle is that you must not fool yourself and you are the easiest person to fool... After you've not fooled yourself, it's easy not to fool other scientists.</h2>
+<div class="footnote">Richard P. Feynman</div>
+<div class="top-right"><img src="./Assurance Case_files/Feynman-2.gif" alt="RF"></div><div class="remark-slide-number">2 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h2 id="-span-class-blue-schneier-s-law-span-"><span class="blue">Schneier's Law</span></h2>
+<h2 id="any-person-can-invent-a-security-system-so-clever-that-he-or-she-can-t-imagine-a-way-of-breaking-it-">Any person can invent a security system so clever that he or she can’t imagine a way of breaking it.</h2>
+<div class="footnote">Bruce Schneier</div>
+<div class="top-right"><img src="./Assurance Case_files/220px-Bruce_Schneier_at_CoPS2013-IMG_9174.jpg" alt="Bruce"></div><div class="remark-slide-number">3 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h2 id="false-assurance-is-a-danger-that-is-avoidable-by-only-trusting-technology-that-is-demonstrably-trustworthy-">False assurance is a danger that is avoidable by only trusting technology that is demonstrably trustworthy.</h2>
+<div class="footnote">Roger Schell</div>
+<div class="top-right"><img src="./Assurance Case_files/0054_IMG-thumb.jpg" alt="Roger"></div><div class="remark-slide-number">4 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default" ><div class="remark-slide-number">5 / 117</div></div></div></div><div class="remark-slide-notes"><p>Scenario: Our goal is to find a black cat in a dark room.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default" ><div class="remark-slide-number">6 / 117</div></div></div></div><div class="remark-slide-notes"><p>We also not sure if there is a cat there to begin with!</p>
+<h2 id="source-">Source:</h2>
+<p>The cat example is adapted from the example provided in System Assurance: Beyond Detecting Vulnerabilities (The MK/OMG Press) 1st Edition, by Nikolai Mansourov  and Djenana Campara <a href="https://amzn.com/0123814146">https://amzn.com/0123814146</a></p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="task-at-hand">Task at hand</h1>
+<p>Find a <strong>black cat</strong> in a <strong>dark room</strong>  </p><div class="remark-slide-number">7 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="task-at-hand">Task at hand</h1>
+<p>Find a <strong>black cat</strong> in a <strong>dark room</strong><br>Also, we are not sure that the cat is really there!</p><div class="remark-slide-number">8 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="task-at-hand">Task at hand</h1>
+<p>Find a <strong>black cat</strong> in a <strong>dark room</strong><br>Also, we are not sure that the cat is really there!</p>
+<h2 id="-div-class-blue-what-are-the-goals-claims-to-be-proven-div-"><div class="blue">What are the Goals/Claims to be proven?</div></h2><div class="remark-slide-number">9 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="possible-claims">Possible claims</h1>
+<h2 id="-span-class-red-claim-1-span-the-room-has-at-least-one-black-cat"><span class="red">Claim 1:</span> The room has at least one black cat</h2><div class="remark-slide-number">10 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="possible-claims">Possible claims</h1>
+<h2 id="-span-class-red-claim-1-span-the-room-has-at-least-one-black-cat"><span class="red">Claim 1:</span> The room has at least one black cat</h2>
+<h2 id="-span-class-red-claim-2-span-the-room-has-no-black-cats"><span class="red">Claim 2:</span> The room has no black cats</h2><div class="remark-slide-number">11 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="possible-claims">Possible claims</h1>
+<h2 id="-span-class-red-claim-1-span-the-room-has-at-least-one-black-cat"><span class="red">Claim 1:</span> The room has at least one black cat</h2>
+<h2 id="-span-class-red-claim-2-span-the-room-has-no-black-cats"><span class="red">Claim 2:</span> The room has no black cats</h2>
+<h2 id="-div-class-blue-what-is-the-basis-for-the-belief-in-these-claims-div-"><div class="blue">What is the basis for the belief in these claims?</div></h2><div class="remark-slide-number">12 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-claim-1-span-"><span class="red">Claim 1</span></h1>
+<p>The room has at least one black cat</p><div class="remark-slide-number">13 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="basis-for-the-belief">Basis for the Belief</h1>
+<h2 id="-span-class-blue-kitty-kitty-kitty-span-search-process-"><span class="blue">Kitty-Kitty-Kitty</span> Search Process*</h2>
+<ol>
+<li>Search team puts a bowl of milk in the room and says <em>kitty-kitty-kitty</em> three times</li>
+<li>Four corners and center of room covered</li>
+<li>Stop when a cat is discovered</li>
+</ol>
+<p><span class="footnote">* Patent Pending</span></p><div class="remark-slide-number">14 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="structured-argument">Structured Argument</h1>
+<h3 id="-span-class-red-claim-span-"><span class="red">Claim</span></h3>
+<p><span class="red">C1:</span> The room has at least one black cat</p><div class="remark-slide-number">15 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="structured-argument">Structured Argument</h1>
+<h3 id="-span-class-red-claim-span-"><span class="red">Claim</span></h3>
+<p><span class="red">C1:</span> The room has at least one black cat</p>
+<h3 id="-span-class-red-sub-claims-span-"><span class="red">Sub-Claims</span></h3>
+<p><span class="red">C1.1:</span> Kitty-kitty-kitty search process discovers cats in the room</p><div class="remark-slide-number">16 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="structured-argument">Structured Argument</h1>
+<h3 id="-span-class-red-claim-span-"><span class="red">Claim</span></h3>
+<p><span class="red">C1:</span> The room has at least one black cat</p>
+<h3 id="-span-class-red-sub-claims-span-"><span class="red">Sub-Claims</span></h3>
+<p><span class="red">C1.1:</span> Kitty-kitty-kitty search process discovers cats in the room</p>
+<h3 id="-span-class-red-evidence-span-"><span class="red">Evidence</span></h3>
+<p><span class="red">E1.1.1:</span> Pictures of cats found</p><div class="remark-slide-number">17 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-claim-2-span-"><span class="red">Claim 2</span></h1>
+<p>The room has <span class="red">no</span> black cats</p><div class="remark-slide-number">18 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-claim-2-span-"><span class="red">Claim 2</span></h1>
+<p>The room has <span class="red">no</span> black cats</p>
+<h3 id="-span-class-red-sub-claims-span-"><span class="red">Sub-Claims</span></h3>
+<p><span class="red">C1.1:</span> Kitty-kitty-kitty search process discovers no cats</p><div class="remark-slide-number">19 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-claim-2-span-"><span class="red">Claim 2</span></h1>
+<p>The room has <span class="red">no</span> black cats</p>
+<h3 id="-span-class-red-sub-claims-span-"><span class="red">Sub-Claims</span></h3>
+<p><span class="red">C1.1:</span> Kitty-kitty-kitty search process discovers no cats</p>
+<h3 id="-span-class-red-evidence-span-"><span class="red">Evidence</span></h3>
+<p><span class="red">E1.1.1:</span> Empty findings report</p><div class="remark-slide-number">20 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="is-this-argument-enough-">Is this argument enough?</h1>
+<p>Can you ever be 100% sure for a large and complex room?  </p><div class="remark-slide-number">21 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-assurance-span-"><span class="red">Assurance</span></h1>
+<p>Basis for the belief in a claim</p><div class="remark-slide-number">22 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-assurance-span-"><span class="red">Assurance</span></h1>
+<p>Basis for the belief in a claim</p>
+<h2 id="-span-class-green-belief-span-increases-when-span-class-red-doubts-span-are-removed-"><span class="green">Belief</span> increases when <span class="red">doubts</span> are removed!</h2><div class="remark-slide-number">23 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-assurance-span-"><span class="red">Assurance</span></h1>
+<p>Basis for the belief in a claim</p>
+<h2 id="-span-class-green-belief-span-increases-when-span-class-red-doubts-span-are-removed-"><span class="green">Belief</span> increases when <span class="red">doubts</span> are removed!</h2>
+<p>A good argument eliminates identified doubts</p><div class="remark-slide-number">24 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-eliminative-induction-https-www-google-com-search-q-define-eliminative-induction-"><a href="https://www.google.com/search?q=define+eliminative+induction">Eliminative Induction</a></h1>
+<p>A series of doubts are introduced for some state of affairs,<br>and then progressively eliminated by new evidence</p><div class="remark-slide-number">25 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="eliminative-induction">Eliminative Induction</h1>
+<h2 id="step-1-introducing-doubts">Step 1: Introducing doubts</h2>
+<p>Challenge the identified claims by introducing doubts</p><div class="remark-slide-number">26 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="eliminative-induction">Eliminative Induction</h1>
+<h2 id="step-1-introducing-doubts">Step 1: Introducing doubts</h2>
+<p>Challenge the identified claims by introducing doubts</p>
+<h2 id="step-2-eliminate-doubts">Step 2: Eliminate doubts</h2>
+<p>For each doubt, identify sub-claims that eliminate the doubt</p><div class="remark-slide-number">27 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="eliminative-induction">Eliminative Induction</h1>
+<h2 id="step-1-introducing-doubts">Step 1: Introducing doubts</h2>
+<p>Challenge the identified claims by introducing doubts</p>
+<h2 id="step-2-eliminate-doubts">Step 2: Eliminate doubts</h2>
+<p>For each doubt, identify sub-claims that eliminate the doubt</p>
+<h2 id="step-3-repeat">Step 3: Repeat</h2>
+<p>Go to Step 1, repeat process for sub-claims</p><div class="remark-slide-number">28 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-1-introducing-doubts">Step 1: Introducing doubts</h1>
+<p><span class="red">C1.1:</span> Kitty-kitty-kitty search process discovers no cats</p><div class="remark-slide-number">29 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-1-introducing-doubts">Step 1: Introducing doubts</h1>
+<p><span class="red">C1.1:</span> Kitty-kitty-kitty search process discovers no cats</p>
+<ul>
+<li><span class="red">R1.1.1</span> <em>Unless</em> the cats were not hungry  </li>
+<li><span class="red">R1.1.2</span> <em>Unless</em> milk is not put in enough places</li>
+<li><span class="red">R1.1.3</span> <em>Unless</em> the people searching are not competent</li>
+<li><span class="red">R1.1.4</span> <em>Unless</em> the baby panthers found are indeed cats</li>
+</ul><div class="remark-slide-number">30 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-2-eliminate-doubts">Step 2: Eliminate doubts</h1>
+<p><span class="red">R1.1.1</span> Unless the cats were not hungry   </p>
+<ul>
+<li><span class="green">C1.1.1</span> The room was locked for 5 days  </li>
+</ul><div class="remark-slide-number">31 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-2-eliminate-doubts">Step 2: Eliminate doubts</h1>
+<p><span class="red">R1.1.1</span> Unless the cats were not hungry   </p>
+<ul>
+<li><span class="green">C1.1.1</span> The room was locked for 5 days  </li>
+</ul>
+<p><span class="red">R1.1.2</span> Unless milk is not put in enough places  </p>
+<ul>
+<li><span class="green">C1.1.2</span> The room is simultaneously searched in 10 equal non-overlapping squares  </li>
+</ul><div class="remark-slide-number">32 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-3-repeat-step-1-identify-doubts">Step 3: Repeat --&gt; Step 1: Identify doubts</h1>
+<p><span class="green">C1.1.1</span> The room was locked for 5 days  </p>
+<ul>
+<li><span class="red">R1.1.1.1</span> Unless the room vents allow cats to go in and out  </li>
+</ul><div class="remark-slide-number">33 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-3-repeat-step-1-identify-doubts">Step 3: Repeat --&gt; Step 1: Identify doubts</h1>
+<p><span class="green">C1.1.1</span> The room was locked for 5 days  </p>
+<ul>
+<li><span class="red">R1.1.1.1</span> Unless the room vents allow cats to go in and out  </li>
+</ul>
+<p><span class="green">C1.1.2</span> The room is simultaneously searched in 10 equal non-overlapping squares  </p>
+<ul>
+<li><span class="red">R1.1.1.2</span> Unless the cats have an alternate food supply (mice in the room)</li>
+</ul><div class="remark-slide-number">34 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-2-eliminate-doubts">Step 2: Eliminate doubts</h1>
+<p><span class="red">R1.1.1.1</span> Unless the room vents allow cats to go in and out  </p>
+<ul>
+<li><span class="green">C1.1.1.1.1</span> All room vents have nets installed</li>
+</ul><div class="remark-slide-number">35 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="step-2-eliminate-doubts">Step 2: Eliminate doubts</h1>
+<p><span class="red">R1.1.1.1</span> Unless the room vents allow cats to go in and out  </p>
+<ul>
+<li><span class="green">C1.1.1.1.1</span> All room vents have nets installed</li>
+</ul>
+<p><span class="red">Unless</span> the cats have an alternate food supply (mice in the room)</p>
+<ul>
+<li><span class="green">C1.1.1.1.2</span> There are no mice in the room</li>
+</ul><div class="remark-slide-number">36 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="stopping-condition-">Stopping condition?</h1>
+<h2 id="evidence">Evidence</h2>
+<p>When the argument is convincing enough to the reader, it should end in the presentation of <span class="blue"><em>facts</em></span> that support the <span class="green"><em>claims</em></span></p><div class="remark-slide-number">37 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="evidence">Evidence</h1>
+<p><span class="red">R1.1.1.1</span> Unless the room vents allow cats to go in and out  </p>
+<ul>
+<li><span class="green">C1.1.1.1.1</span> All room vents have nets installed</li>
+<li><span class="blue">E1.1.1.1.1 Vent inspection report</span></li>
+</ul>
+<p><span class="red">Unless</span> the cats have an alternate food supply (mice in the room)</p>
+<ul>
+<li><span class="green">C1.1.1.1.2</span> There are no mice in the room</li>
+<li><span class="blue">E1.1.1.1.2 Month old exterminator report for rodents</span></li>
+</ul><div class="remark-slide-number">38 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="basis-for-the-belief">Basis for the Belief</h1>
+<p>As more reasons for doubt are eliminated, assurance in the top-level claim increases  </p>
+<p>If many doubts remain, assurance is diminished</p><div class="remark-slide-number">39 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="basis-for-the-belief">Basis for the Belief</h1>
+<p>As more reasons for doubt are eliminated, assurance in the top-level claim increases  </p>
+<p>If many doubts remain, assurance is diminished</p>
+<p>A rigorous argumentation structure assists <span class="red"><em>trust decisions</em></span> for the presented claims</p><div class="remark-slide-number">40 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-claim-3-span-"><span class="red">Claim 3</span></h1>
+<p>The room will have <span class="red">no</span> black cats for the <span class="red">next 12 months</span></p><div class="remark-slide-number">41 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-claim-3-span-"><span class="red">Claim 3</span></h1>
+<p>The room will have <span class="red">no</span> black cats for the <span class="red">next 12 months</span></p>
+<p>Does it make sense to justify this claim by a single search at a moment in time?</p><div class="remark-slide-number">42 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="risk-a-future-adverse-event">Risk: A future adverse event</h1>
+<p>We can introduce even more doubts!</p>
+<ul>
+<li><span class="red">R1.1.5</span> Unless the cats hibernate when search is conducted  </li>
+<li><span class="red">R1.1.6</span> Unless cat zapper vents are working intermittently</li>
+<li><span class="red">R1.1.7</span> Unless the vents are not being inspected periodically</li>
+<li><span class="red">R1.1.8</span> Unless the exterminator skips visits</li>
+</ul><div class="remark-slide-number">43 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="risk-a-future-adverse-event">Risk: A future adverse event</h1>
+<p>We can introduce even more doubts!</p>
+<ul>
+<li><span class="red">R1.1.5</span> Unless the cats hibernate when search is conducted  </li>
+<li><span class="red">R1.1.6</span> Unless cat zapper vents are working intermittently</li>
+<li><span class="red">R1.1.7</span> Unless the vents are not being inspected periodically</li>
+<li><span class="red">R1.1.8</span> Unless the exterminator skips visits</li>
+</ul>
+<p>To eliminate these doubts, <span class="green">continuous</span> efforts are required.</p><div class="remark-slide-number">44 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="a-very-catty-summary">A very catty summary</h1>
+<h2 id="equate-cats-to-span-class-red-weaknesses-span-">Equate Cats to <span class="red">Weaknesses</span></h2>
+<h3 id="claim-1-point-solution-">Claim 1 (Point Solution)</h3>
+<ul>
+<li>Produces knowledge about what you found  </li>
+</ul>
+<div class="top-right"><img src="./Assurance Case_files/latest" alt="catfunny"></div><div class="remark-slide-number">45 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="a-very-catty-summary">A very catty summary</h1>
+<h2 id="equate-cats-to-span-class-red-weaknesses-span-">Equate Cats to <span class="red">Weaknesses</span></h2>
+<h3 id="claim-1-point-solution-">Claim 1 (Point Solution)</h3>
+<ul>
+<li>Produces knowledge about what you found  </li>
+</ul>
+<div class="top-right"><img src="./Assurance Case_files/latest" alt="catfunny"></div>
+
+<h3 id="claim-2-snapshot-">Claim 2 (Snapshot)</h3>
+<ul>
+<li>Produces knowledge about the whole system</li>
+</ul>
+<div class="top-right"><img src="./Assurance Case_files/bullet_cat.jpg" alt="catfunny"></div><div class="remark-slide-number">46 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="a-very-catty-summary">A very catty summary</h1>
+<h2 id="equate-cats-to-span-class-red-weaknesses-span-">Equate Cats to <span class="red">Weaknesses</span></h2>
+<h3 id="claim-1-point-solution-">Claim 1 (Point Solution)</h3>
+<ul>
+<li>Produces knowledge about what you found  </li>
+</ul>
+<div class="top-right"><img src="./Assurance Case_files/latest" alt="catfunny"></div>
+
+<h3 id="claim-2-snapshot-">Claim 2 (Snapshot)</h3>
+<ul>
+<li>Produces knowledge about the whole system</li>
+</ul>
+<div class="top-right"><img src="./Assurance Case_files/bullet_cat.jpg" alt="catfunny"></div>
+
+<h3 id="claim-3-continuous-assurance-">Claim 3 (Continuous Assurance)</h3>
+<ul>
+<li>Produces knowledge about minimizing<br>a future undesirable event</li>
+</ul>
+<div class="top-right"><img src="./Assurance Case_files/non-stop-nyan-cat.jpg" alt="catfunny"></div><div class="remark-slide-number">47 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="developing-assurance-cases">Developing Assurance Cases</h1><div class="remark-slide-number">48 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="assurance-case-logical-structure">Assurance Case Logical Structure</h1>
+<p><img src="./Assurance Case_files/structure.png" alt="structure"></p>
+<div class="footnote"><a href="https://www.us-cert.gov/bsi/articles/knowledge/assurance-cases/evidence-assurance-laying-foundation-credible-security-case">Arguing Security - Creating Security Assurance Cases</a></div><div class="remark-slide-number">49 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="assurance-case-contents">Assurance Case Contents</h1>
+<h2 id="a-top-level-claim">A Top-level Claim</h2>
+<p>The claim is regarding <span class="red">a critical property</span> of a system or product</p>
+<h2 id="argumentation">Argumentation</h2>
+<p>Arguing through <span class="red">multiple levels of subordinate claims</span> connects the top-level claim to the evidence and assumptions</p>
+<h2 id="evidence-and-assumptions">Evidence and Assumptions</h2>
+<p><span class="red">Explicit information</span> that underlies the argumentation</p><div class="remark-slide-number">50 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="convince-a-bystander">Convince a bystander</h1>
+<h3 id="_while-an-assurance-case-is-useful-for-decision-making-by-knowledgeable-stakeholders-e-g-developers-and-service-providers-often-the-primary-motivation-for-an-assurance-case-is-to-support-crucial-decisions-by-stakeholders-without-this-background-such-as-those-involved-in-certification-regulation-acquisition-or-audit-of-the-system-_"><em>While an assurance case is useful for decision-making by knowledgeable stakeholders (e.g., developers and service providers), often the primary motivation for an assurance case is to support crucial decisions by stakeholders without this background, such as those involved in certification, regulation, acquisition, or audit of the system.</em></h3>
+<div class="footnote"><a href="http://www.iso.org/iso/catalogue_detail.htm?csnumber=52926">ISO/IEC 15026-2:2011</a></div><div class="remark-slide-number">51 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="-iso-iec-15026-2-2011-http-www-iso-org-iso-catalogue_detail-htm-csnumber-52926-"><a href="http://www.iso.org/iso/catalogue_detail.htm?csnumber=52926">ISO/IEC 15026-2:2011</a></h1>
+<p><img src="./Assurance Case_files/iso-standard.png" alt="iso"></p><div class="remark-slide-number">52 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="claims">Claims</h1>
+<h3 id="claims-concern-critical-properties">Claims concern critical properties</h3><div class="remark-slide-number">53 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="claims">Claims</h1>
+<h3 id="claims-concern-critical-properties">Claims concern critical properties</h3>
+<h3 id="a-claim-is-always-worded-as-a-predicate">A claim is always worded as a predicate</h3>
+<ul>
+<li>i.e. it can only be true or false</li>
+</ul><div class="remark-slide-number">54 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="claims">Claims</h1>
+<h3 id="claims-concern-critical-properties">Claims concern critical properties</h3>
+<h3 id="a-claim-is-always-worded-as-a-predicate">A claim is always worded as a predicate</h3>
+<ul>
+<li>i.e. it can only be true or false</li>
+</ul>
+<h3 id="claim-should-avoid-just-details-about-the-supporting-method-techniques">Claim should avoid just details about the supporting method/techniques</h3>
+<ul>
+<li><span class="red">Bad claim:</span> The system uses AES encryption</li>
+<li>Uninteresting</li>
+</ul><div class="remark-slide-number">55 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="claims">Claims</h1>
+<h3 id="claims-concern-critical-properties">Claims concern critical properties</h3>
+<h3 id="a-claim-is-always-worded-as-a-predicate">A claim is always worded as a predicate</h3>
+<ul>
+<li>i.e. it can only be true or false</li>
+</ul>
+<h3 id="claim-should-avoid-just-details-about-the-supporting-method-techniques">Claim should avoid just details about the supporting method/techniques</h3>
+<ul>
+<li><span class="red">Bad claim:</span> The system uses AES encryption</li>
+<li>Uninteresting</li>
+</ul>
+<h3 id="the-claim-should-be-a-reasonable-goal">The claim should be a reasonable goal</h3>
+<ul>
+<li><span class="green">Good claim:</span> “The system is acceptably secure against communication lines related threats”</li>
+</ul><div class="remark-slide-number">56 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="claims">Claims</h1>
+<h2 id="claim-properties-are-risk-related">Claim properties are risk-related</h2>
+<ul>
+<li>High confidence is needed in their realization</li>
+</ul><div class="remark-slide-number">57 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="claims">Claims</h1>
+<h2 id="claim-properties-are-risk-related">Claim properties are risk-related</h2>
+<ul>
+<li>High confidence is needed in their realization</li>
+</ul>
+<h2 id="good-claim-checklist">Good Claim Checklist</h2>
+<ul>
+<li><span class="blue">An entity</span></li>
+<li><span class="orange">A critical property of the entity</span></li>
+<li><span class="green">A value for the property and related uncertainty</span></li>
+</ul><div class="remark-slide-number">58 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="claims">Claims</h1>
+<h2 id="claim-properties-are-risk-related">Claim properties are risk-related</h2>
+<ul>
+<li>High confidence is needed in their realization</li>
+</ul>
+<h2 id="good-claim-checklist">Good Claim Checklist</h2>
+<ul>
+<li><span class="blue">An entity</span></li>
+<li><span class="orange">A critical property of the entity</span></li>
+<li><span class="green">A value for the property and related uncertainty</span></li>
+</ul>
+<h2 id="example">Example</h2>
+<ul>
+<li><span class="blue">The system</span> <span class="green">is acceptably</span> <span class="orange">secure</span></li>
+<li><span class="blue">The system</span> <span class="green">has no</span> <span class="orange">unacceptable consequences to assets from security threats</span></li>
+</ul><div class="remark-slide-number">59 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-grammatical-guidance-http-www-sei-cmu-edu-dependability-tools-assurancecase-"><a href="http://www.sei.cmu.edu/dependability/tools/assurancecase/">Grammatical Guidance</a></h1>
+<h2 id="-span-class-blue-lt-noun-phrase-gt-span-"><span class="blue">&lt;NOUN-PHRASE&gt;</span></h2>
+<ul>
+<li><span class="blue">Noun-Phrase</span> identifies the subject (“entity”) of the claim</li>
+</ul>
+<h2 id="-span-class-orange-lt-verb-phrase-gt-span-"><span class="orange">&lt;VERB-PHRASE&gt;</span></h2>
+<ul>
+<li><span class="orange">Verb-Phrase</span> defines a predicate using the critical property of the subject along with its expected value and related uncertainty</li>
+</ul><div class="remark-slide-number">60 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-grammatical-guidance-http-www-sei-cmu-edu-dependability-tools-assurancecase-"><a href="http://www.sei.cmu.edu/dependability/tools/assurancecase/">Grammatical Guidance</a></h1>
+<h2 id="bad-examples">Bad Examples</h2>
+<ul>
+<li>Just describes an entity: <del><span class="red">XSS results for Canvas</span></del></li>
+<li>Describes an action on entity: <del><span class="red">Perform XSS on Canvas</span></del></li>
+<li>A question: <del><span class="red">How many XSS weaknesses does Canvas have?</span></del></li>
+<li>Fact, no argument needed: <span class="red"><del>Canvas uses AES encryption</del></span></li>
+</ul><div class="remark-slide-number">61 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-actual-span-bad-examples"><span class="red">Actual</span> bad examples</h1>
+<h2 id="-span-class-red-c5-security-professionals-test-code-for-xss-vulnerabilities-span-"><span class="red">C5: Security Professionals test code for XSS vulnerabilities</span></h2><div class="remark-slide-number">62 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="-span-class-red-actual-span-bad-examples"><span class="red">Actual</span> bad examples</h1>
+<h2 id="-span-class-red-c5-security-professionals-test-code-for-xss-vulnerabilities-span-"><span class="red">C5: Security Professionals test code for XSS vulnerabilities</span></h2>
+<h2 id="-span-class-red-c18-the-system-uses-a-static-analysis-tool-span-"><span class="red">C18: The System uses a Static Analysis tool</span></h2>
+<div class="footnote">See notes (hit <code class="remark-inline-code">p</code>) for class exercise</div><div class="remark-slide-number">63 / 117</div></div></div></div><div class="remark-slide-notes"><h1 id="class-exercise-">Class exercise:</h1>
+<h1 id="work-with-your-team-to-rephrase-these-appropriately-">Work with your team to rephrase these appropriately.</h1>
+<p>When you are done enter your answers in this <a href="https://docs.google.com/a/unomaha.edu/document/d/11Xr8GHBHfWJGLotiLoe-us1EZ4Qjn2msjfxHAKjs64Q/edit?usp=sharing">Google Doc</a></p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="good-examples">Good Examples</h1>
+<h2 id="-span-class-blue-canvas-span-span-class-green-has-no-span-span-class-orange-exploitable-xss-weaknesses-span-"><span class="blue">Canvas</span> <span class="green">has no</span> <span class="orange">exploitable XSS weaknesses</span></h2><div class="remark-slide-number">64 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="good-examples">Good Examples</h1>
+<h2 id="-span-class-blue-canvas-span-span-class-green-has-no-span-span-class-orange-exploitable-xss-weaknesses-span-"><span class="blue">Canvas</span> <span class="green">has no</span> <span class="orange">exploitable XSS weaknesses</span></h2>
+<h2 id="-span-class-green-all-span-span-class-blue-canvas-xss-weaknesses-span-span-class-green-have-been-sufficiently-span-span-class-orange-mitigated-span-"><span class="green">All</span> <span class="blue">Canvas XSS weaknesses</span> <span class="green">have been sufficiently</span> <span class="orange">mitigated</span></h2><div class="remark-slide-number">65 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="good-examples">Good Examples</h1>
+<h2 id="-span-class-blue-canvas-span-span-class-green-has-no-span-span-class-orange-exploitable-xss-weaknesses-span-"><span class="blue">Canvas</span> <span class="green">has no</span> <span class="orange">exploitable XSS weaknesses</span></h2>
+<h2 id="-span-class-green-all-span-span-class-blue-canvas-xss-weaknesses-span-span-class-green-have-been-sufficiently-span-span-class-orange-mitigated-span-"><span class="green">All</span> <span class="blue">Canvas XSS weaknesses</span> <span class="green">have been sufficiently</span> <span class="orange">mitigated</span></h2>
+<h2 id="-span-class-blue-canvas-span-span-class-orange-attack-surface-span-span-class-green-is-minimized-span-"><span class="blue">Canvas</span> <span class="orange">attack surface</span> <span class="green">is minimized</span></h2><div class="remark-slide-number">66 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="scenario">Scenario</h1>
+<h2 id="oppd-ne-has-received-intelligence-">OPPD NE has received intelligence.</h2>
+<ul>
+<li>Rouge nation states are targeting their software supply chains.</li>
+<li>There is a credible threat. Software bought by OPPD for business functions is being targeted for sabotage with malicious code.</li>
+</ul><div class="remark-slide-number">67 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="scenario">Scenario</h1>
+<h2 id="oppd-ne-has-received-intelligence-">OPPD NE has received intelligence.</h2>
+<ul>
+<li>Rouge nation states are targeting their software supply chains.</li>
+<li>There is a credible threat. Software bought by OPPD for business functions is being targeted for sabotage with malicious code.</li>
+</ul>
+<h2 id="top-level-claim">Top Level Claim</h2>
+<ul>
+<li><span class="blue">OPPD NE supply chain processes</span> <span class="green">minimize </span> <span class="orange">the possibility of sabotage by malicious code in software applications</span></li>
+</ul><div class="remark-slide-number">68 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="claim-visual-notation">Claim Visual Notation</h1>
+<h2 id="based-on-goal-structuring-notation-gsn-">Based on Goal Structuring Notation (GSN)</h2>
+<p><img src="./Assurance Case_files/claim.svg" alt="claim"></p><div class="remark-slide-number">69 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="elaborating-the-claim">Elaborating the Claim</h1>
+<h2 id="-span-class-green-additional-information-span-that-is-excluded-from-the-claim-or-evidence"><span class="green">Additional information</span> that is excluded from the claim or evidence</h2>
+<ul>
+<li>Context (understanding)</li>
+<li>Justification (rationale)</li>
+<li>Assumptions (validity)</li>
+</ul><div class="remark-slide-number">70 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="context">Context</h1>
+<h2 id="information-necessary-for-a-claim-to-be-understood-or-amplified">Information necessary for a claim to be understood or amplified</h2>
+<ul>
+<li>Includes a statement that defines the <span class="red">scope</span> of the claim</li>
+<li>Provides means to check <span class="red">satisfaction</span> of the claim</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<ul>
+<li>External references, Definitions, Clarification of myths</li>
+<li>Security considerations for supply chain processes per NIST SP 800-160</li>
+</ul><div class="remark-slide-number">71 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="assumption">Assumption</h1>
+<h2 id="a-statement-whose-validity-has-to-be-relied-upon-in-order-to-make-an-argument">A statement whose validity has to be relied upon in order to make an argument</h2>
+<ul>
+<li><span class="red">Restricted context</span></li>
+<li><span class="red">Exceptions</span> or situations the claim does not cover</li>
+</ul>
+<h2 id="example">Example</h2>
+<ul>
+<li>Nuclear energy safety mechanisms do not include software</li>
+</ul><div class="remark-slide-number">72 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="justification">Justification</h1>
+<h2 id="provides-span-class-red-rationale-span-for-the-use-selection-of-a-claim-or-strategy">Provides <span class="red">rationale</span> for the use/selection of a claim or strategy</h2>
+<h2 id="example">Example</h2>
+<ul>
+<li>Intelligence reports of malicious code in nuclear energy software</li>
+</ul><div class="remark-slide-number">73 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="context-visual-notation">Context Visual Notation</h1>
+<p><img src="./Assurance Case_files/context.svg" alt="context"></p><div class="remark-slide-number">74 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="justification-visual-notation">Justification Visual Notation</h1>
+<p><img src="./Assurance Case_files/justification.svg" alt="justification"></p><div class="remark-slide-number">75 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="strategy">Strategy</h1>
+<h2 id="provides-direction-for-an-argument">Provides direction for an argument</h2>
+<h2 id="phrased-with-respect-to-the-argument">Phrased with respect to the argument</h2>
+<ul>
+<li><span class="green">Argument by appeal to</span> software acquisition practices</li>
+</ul>
+<h2 id="a-strategy-is-elaborated-by-providing-a-series-of-sub-claims">A strategy is elaborated by providing a series of sub-claims</h2><div class="remark-slide-number">76 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="strategy-visual-notation">Strategy Visual Notation</h1>
+<p><img src="./Assurance Case_files/strategy.svg" alt="strategy"></p><div class="remark-slide-number">77 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="argument">Argument</h1>
+<ul>
+<li>Conveys why we believe a claim has been met</li>
+<li>Refine claims into sub claims, until the sub-claim can be directly supported by the actual evidence</li>
+<li>Bridges the gap between claims and evidence</li>
+</ul><div class="remark-slide-number">78 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="argument">Argument</h1>
+<ul>
+<li>Conveys why we believe a claim has been met</li>
+<li>Refine claims into sub claims, until the sub-claim can be directly supported by the actual evidence</li>
+<li>Bridges the gap between claims and evidence</li>
+</ul>
+<h2 id="stopping-condition-">Stopping condition?</h2>
+<ul>
+<li>The rigor is acceptable</li>
+<li>Resources are unavailable</li>
+<li>Further expenditure is not justified</li>
+</ul><div class="remark-slide-number">79 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h2 id="sub-claim">Sub-claim</h2>
+<p>Develop a sub-claim
+<img src="./Assurance Case_files/strategy.svg" alt="argument"></p><div class="remark-slide-number">80 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h2 id="sub-claim">Sub-claim</h2>
+<p><img src="./Assurance Case_files/sub-claim.svg" alt="sub-claim"></p><div class="remark-slide-number">81 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="evidence">Evidence</h1>
+<ul>
+<li>Every branch must be terminated in evidence</li>
+<li>Something tangible and measureable</li>
+</ul>
+<h2 id="grammatical-guidance">Grammatical Guidance</h2>
+<ul>
+<li>Must be a <span class="blue">noun phrase</span> only (NO verb phrase)</li>
+<li>Should <span class="red">not</span> be stated as a claim</li>
+</ul><div class="remark-slide-number">82 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="evidence">Evidence</h1>
+<h2 id="examples">Examples</h2>
+<ul>
+<li><span class="red">E1:</span> Test results from penetration tools</li>
+<li><span class="red">E2:</span> Warnings from static analysis tool</li>
+<li><span class="red">E3:</span> Hardware design review results</li>
+<li><span class="red">E4:</span> Parameter validation assurance case</li>
+<li><span class="red">E5:</span> Reports for assessing compiler settings with security implications</li>
+</ul><div class="remark-slide-number">83 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><p><img src="./Assurance Case_files/evidence.svg" alt="Evidence"></p><div class="remark-slide-number">84 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><p><img src="./Assurance Case_files/arrows.svg" alt="arrow"></p>
+<div class="topnote">What do the arrows mean?</div><div class="remark-slide-number">85 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="coming-up-with-a-good-argument-is-span-class-large-hard-span-">Coming up with a good Argument is <span class="large">Hard!</span></h1><div class="remark-slide-number">86 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="eliminative-induction">Eliminative Induction</h1>
+<h2 id="support-assurance-increases-as-reasons-for-doubt-are-eliminated">Support/assurance increases as reasons for doubt are eliminated</h2><div class="remark-slide-number">87 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="eliminative-induction">Eliminative Induction</h1>
+<h2 id="support-assurance-increases-as-reasons-for-doubt-are-eliminated">Support/assurance increases as reasons for doubt are eliminated</h2>
+<h2 id="claim-span-class-blue-the-bulb-span-span-class-green-will-span-span-class-orange-glow-when-switched-on-span-">Claim: <span class="blue">The bulb</span> <span class="green">will</span> <span class="orange">glow when switched on</span></h2>
+<ul>
+<li><span class="red">Unless</span> switch not connected to light</li>
+<li><span class="red">Unless</span> no power</li>
+<li><span class="red">Unless</span> dead light bulb<br><img src="./Assurance Case_files/lightexample.png" alt="light"></li>
+</ul><div class="remark-slide-number">88 / 117</div></div></div></div><div class="remark-slide-notes"><p>Image and example provided in slides by John B. Goodenough</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="introducing-doubts-">Introducing Doubts*</h1>
+<h2 id="making-doubts-explicit">Making doubts explicit</h2>
+<h3 id="attack-claim-rebutting-defeater-why-claim-could-be-false">Attack claim (rebutting defeater) — why claim could be false</h3><div class="remark-slide-number">89 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="introducing-doubts-">Introducing Doubts*</h1>
+<h2 id="making-doubts-explicit">Making doubts explicit</h2>
+<h3 id="attack-claim-rebutting-defeater-why-claim-could-be-false">Attack claim (rebutting defeater) — why claim could be false</h3>
+<h3 id="attack-evidence-undermining-defeater-why-evidence-could-be-irrelevant">Attack evidence (undermining defeater) — why evidence could be irrelevant</h3><div class="remark-slide-number">90 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="introducing-doubts-">Introducing Doubts*</h1>
+<h2 id="making-doubts-explicit">Making doubts explicit</h2>
+<h3 id="attack-claim-rebutting-defeater-why-claim-could-be-false">Attack claim (rebutting defeater) — why claim could be false</h3>
+<h3 id="attack-evidence-undermining-defeater-why-evidence-could-be-irrelevant">Attack evidence (undermining defeater) — why evidence could be irrelevant</h3>
+<h3 id="-span-class-green-attack-inference-span-undercutting-defeater-premise-good-conclusion-uncertain"><span class="green">Attack inference</span> (undercutting defeater) — premise good; conclusion uncertain</h3>
+<div class="footnote">*See notes for sources [hit: <code class="remark-inline-code">p</code>]</div><div class="remark-slide-number">91 / 117</div></div></div></div><div class="remark-slide-notes"><p>The content in next few slides is based on:</p>
+<ol>
+<li>SEI Report: Toward a Theory of Assurance Case Confidence <a href="http://www.sei.cmu.edu/reports/12tr002.pdf">http://www.sei.cmu.edu/reports/12tr002.pdf</a></li>
+<li>Charles B. Weinstock, John B. Goodenough, and Ari Z. Klein. 2013. Measuring assurance case confidence using Baconian probabilities. In Proceedings of the 1st International Workshop on Assurance Cases for Software-Intensive Systems (ASSURE '13). IEEE Press, Piscataway, NJ, USA, 7-11.</li>
+<li>Explicit permission to use slides provided by John B. Goodenough</li>
+</ol></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="assurance-case-logical-structure">Assurance Case Logical Structure</h1>
+<h2 id="notice-span-class-green-inference-rules-span-">Notice <span class="green">inference rules</span>?</h2>
+<p><img src="./Assurance Case_files/structure.png" alt="structure"></p>
+<div class="footnote"><a href="https://buildsecurityin.us-cert.gov/daisy/bsi/articles/knowledge/assurance/643-BSI.html">Arguing Security - Creating Security Assurance Cases</a></div><div class="remark-slide-number">92 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="inference-rule">Inference Rule</h1>
+<h2 id="a-generalization-that-in-most-circumstances-is-considered-to-be-true">A generalization that in most circumstances is considered to be true</h2>
+<h2 id="example">Example</h2>
+<ul>
+<li>(premise) If X is a bird then (conclusion) X can fly</li>
+</ul><div class="remark-slide-number">93 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="inference-rule">Inference Rule</h1>
+<h2 id="a-generalization-that-in-most-circumstances-is-considered-to-be-true">A generalization that in most circumstances is considered to be true</h2>
+<h2 id="example">Example</h2>
+<ul>
+<li>(premise) If X is a bird then (conclusion) X can fly</li>
+<li>(Generalization) All birds can fly</li>
+</ul><div class="remark-slide-number">94 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="inference-rule">Inference Rule</h1>
+<h2 id="a-generalization-that-in-most-circumstances-is-considered-to-be-true">A generalization that in most circumstances is considered to be true</h2>
+<h2 id="example">Example</h2>
+<ul>
+<li>(premise) If X is a bird then (conclusion) X can fly</li>
+<li>(Generalization) All birds can fly</li>
+</ul>
+<p><span class="red">An argument is an instantiation of one or more inference rules with a specific premises and conclusions</span></p><div class="remark-slide-number">95 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="example-claim">Example Claim</h1>
+<p><img src="./Assurance Case_files/tweetyclaim.svg" alt="claim"></p><div class="remark-slide-number">96 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="inference-rule">Inference Rule</h1>
+<p><img src="./Assurance Case_files/inference.svg" alt="inference"></p><div class="remark-slide-number">97 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="undercutting-defeater">Undercutting defeater</h1>
+<h2 id="premise-good-conclusion-uncertain">Premise good; conclusion uncertain</h2>
+<p><img src="./Assurance Case_files/inference.svg" alt="claim"></p><div class="remark-slide-number">98 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><p><img src="./Assurance Case_files/undercut.svg" alt="claim"></p><div class="remark-slide-number">99 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="rebutting-defeater">Rebutting defeater</h1>
+<h2 id="why-claim-could-be-false">Why claim could be false</h2>
+<p><img src="./Assurance Case_files/inference.svg" alt="claim"></p><div class="remark-slide-number">100 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="rebutting-defeater">Rebutting defeater</h1>
+<h2 id="why-claim-could-be-false">Why claim could be false</h2>
+<p><img src="./Assurance Case_files/rebutting.svg" alt="claim"></p><div class="remark-slide-number">101 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="address-rebutting-defeater">Address Rebutting defeater</h1>
+<p><img src="./Assurance Case_files/rebuttclaim.svg" alt="claim"></p><div class="remark-slide-number">102 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="undermining-defeater">Undermining defeater</h1>
+<h2 id="why-evidence-could-be-irrelevant">Why evidence could be irrelevant</h2>
+<p><img src="./Assurance Case_files/undermine.svg" alt="claim"></p><div class="remark-slide-number">103 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="undermining-defeater">Undermining defeater</h1>
+<p><img src="./Assurance Case_files/undermine-done.svg" alt="claim"></p><div class="remark-slide-number">104 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="measuring-confidence">Measuring Confidence</h1>
+<h2 id="baconinan-probability">Baconinan Probability</h2>
+<ul>
+<li>0|n (no confidence) — no doubts eliminated</li>
+<li>2|3 (partial confidence) — residual doubt</li>
+<li>n|n (complete confidence) — no doubts remain</li>
+</ul><div class="remark-slide-number">105 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="measuring-confidence">Measuring Confidence</h1>
+<h2 id="baconinan-probability">Baconinan Probability</h2>
+<ul>
+<li>0|n (no confidence) — no doubts eliminated</li>
+<li>2|3 (partial confidence) — residual doubt</li>
+<li>n|n (complete confidence) — no doubts remain</li>
+</ul>
+<h2 id="use-for-relative-improvements-not-comparison">Use for relative improvements, not comparison</h2><div class="remark-slide-number">106 / 117</div></div></div></div><div class="remark-slide-notes"><p>Source: Slides by John B. Goodenough
+Source: Charles B. Weinstock, John B. Goodenough, and Ari Z. Klein. 2013. Measuring assurance case confidence using Baconian probabilities. In Proceedings of the 1st International Workshop on Assurance Cases for Software-Intensive Systems (ASSURE '13). IEEE Press, Piscataway, NJ, USA, 7-11.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="few-more-notations">Few more notations</h1>
+<h2 id="claim-to-be-further-developed">Claim to be further developed</h2>
+<p><img src="./Assurance Case_files/developclaim.svg" alt="developclaim"></p><div class="remark-slide-number">107 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><h1 id="few-more-notations">Few more notations</h1>
+<h2 id="no-further-argumentation">No further argumentation</h2>
+<p><img src="./Assurance Case_files/stopargument-1.svg" alt="stop">
+<img src="./Assurance Case_files/stopargument-2.svg" alt="stop"></p><div class="remark-slide-number">108 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content hljs-default"><p><img src="./Assurance Case_files/preview.svg" alt="preview"></p><div class="remark-slide-number">109 / 117</div></div></div></div><div class="remark-slide-notes"><p>Source: This example is partially based on the presentation of this paper given at ICSE conference: J. B. Goodenough, C. B. Weinstock and A. Z. Klein, "Eliminative induction: A basis for arguing system confidence," 2013 35th International Conference on Software Engineering (ICSE), San Francisco, CA, 2013, pp. 1161-1164.</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="assurance-cases-in-practice">Assurance Cases in Practice</h1>
+<h2 id="cc-evaluations-and-software-assurance">CC Evaluations and Software Assurance</h2>
+<ul>
+<li>Argue how protection profile needs are satisfied by a Security Target</li>
+<li>Assurance cases are recommended for the highest levels of Evaluation Assurance Levels (EAL)</li>
+</ul><div class="remark-slide-number">110 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><p><em>In pursuit of Trusted Computer System Evaluation Criteria (TCSEC) or CC evaluations or Federal Information Processing Standard (FIPS) 140-1 or 140-2 certifications for their security-enforcing IT products, vendors are required not only to submit assurance claims for those products to the independent evaluation or certification facility but to <span class="red">provide complete assurance cases</span> that provide a sufficient basis for the facility to verify those assurance claims.*</em></p>
+<div class="footnote">* <a href="https://cwe.mitre.org/documents/iatac_swa_soar.pdf">Software Security Assurance State-of-the-Art Report (SOAR)</a>, 2007, DoD Information Assurance Technology Analysis Center (IATAC) Data and Analysis Center for Software (DACS)</div><div class="remark-slide-number">111 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="security-controls">Security Controls</h1>
+<p><a href="https://csrc.nist.gov/csrc/media/publications/sp/800-53/rev-5/draft/documents/sp800-53r5-draft.pdf">NIST SP 800-53 Rev. 5</a></p>
+<h3 id="makes-the-security-and-privacy-controls-outcome-based">Makes the security and privacy controls outcome-based</h3>
+<ul>
+<li>Focuses on the security and privacy capabilities</li>
+<li>Controls are now <span class="orange">critical properties</span> of interest.</li>
+</ul><div class="remark-slide-number">112 / 117</div></div></div></div><div class="remark-slide-notes"><p>(i.e., what needs to be done to protect the system or information and not which entity carries out the action or where it is carried out);</p></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="security-controls">Security Controls</h1>
+<p><a href="https://csrc.nist.gov/csrc/media/publications/sp/800-53/rev-5/draft/documents/sp800-53r5-draft.pdf">NIST SP 800-53 Rev. 5</a></p>
+<p>IA-2 IDENTIFICATION AND AUTHENTICATION</p>
+<h3 id="current-rev-4-">Current (Rev 4):</h3>
+<ul>
+<li>Control: The information system uniquely identifies and authenticates organizational users.</li>
+</ul>
+<h3 id="proposed-rev-5-">Proposed (Rev 5):</h3>
+<ul>
+<li>Control: Uniquely identify and authenticate organizational users.</li>
+</ul><div class="remark-slide-number">113 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="software-security-controls">Software Security Controls</h1>
+<p>First to develop and apply assurance case based method for control refinement</p>
+<ul>
+<li>Software related controls derived from the NIST SP 800-53 control catalog</li>
+<li>These software assurance controls are enumerated in <a href="https://csrc.nist.gov/csrc/media/publications/sp/800-160/archive/2016-05-04/documents/sp800_160_second-draft.pdf">NIST SP 800-160 Appendix-J</a></li>
+</ul>
+<h4 id="gandhi-r-siy-h-crosby-k-mandal-s-graduate-2014-gauging-the-impact-of-fisma-on-software-security-ieee-computer-vol-47-9-">Gandhi, R., Siy, H., Crosby, K., Mandal, S. (Graduate), (2014). Gauging the Impact of FISMA on Software Security, IEEE Computer, vol. 47 (9)</h4>
+<h4 id="gandhi-r-a-crosby-k-siy-h-mandal-s-2016-driving-secure-software-initiatives-using-fisma-issues-and-opportunities-crosstalk-journal-of-defense-software-engineering-jan-feb-2016-issue-">Gandhi, R. A., Crosby, K., Siy, H., Mandal, S. (2016) Driving Secure Software Initiatives Using FISMA: Issues and Opportunities. CrossTalk, Journal of Defense Software Engineering, Jan/Feb 2016 Issue.</h4><div class="remark-slide-number">114 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="other-applications">Other Applications</h1>
+<h3 id="forensics">Forensics</h3>
+<ul>
+<li>Jones, C. (2014). <strong>Evaluating the use of assurance cases for digital forensics.</strong> Dissertations &amp; Theses @ University of Nebraska - Omaha; ProQuest <a href="https://search.proquest.com/docview/1528534691?accountid=14692">https://search.proquest.com/docview/1528534691?accountid=14692</a></li>
+</ul><div class="remark-slide-number">115 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h1 id="other-applications">Other Applications</h1>
+<h3 id="research-study-design">Research Study Design</h3>
+<ul>
+<li>Gandhi R.A. and Lee, S.W., “Assurance Case driven Case Study Design in Requirements Engineering Research,” In: 15th International Working Conference on Requirements Engineering: Foundations for Software Quality, REFSQ 2009.</li>
+</ul>
+<h3 id="interview-protocol-design">Interview Protocol Design</h3>
+<ul>
+<li>Gandhi R.A., Germonprez M., Link G., "Open Data Standards for Open Source Software Risk Management Routine: An Examination of SPDX", ACM GROUP 2018 <a href="https://github.com/SPDX-CaseStudy/files/blob/master/AssuranceCase.png">https://github.com/SPDX-CaseStudy/files/blob/master/AssuranceCase.png</a></li>
+</ul><div class="remark-slide-number">116 / 117</div></div></div></div><div class="remark-slide-notes"></div></div><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content center middle hljs-default"><h1 id="-span-class-large-got-assurance-span-"><span class="large">Got Assurance?</span></h1>
+<div class="bottom-left"><img src="./Assurance Case_files/315640bead03adc498079b11707081fbfcfc0d4d97b1e1d69ba1d930dfa286d6.jpg" alt="meme"></div><div class="remark-slide-number">117 / 117</div></div></div></div><div class="remark-slide-notes"></div></div></div>
+<div class="remark-preview-area"><div class="remark-slide-container"><div class="remark-slide-scaler" ><div class="remark-slide"><div class="remark-slide-content middle hljs-default"><h2 id="the-first-principle-is-that-you-must-not-fool-yourself-and-you-are-the-easiest-person-to-fool-after-you-ve-not-fooled-yourself-it-s-easy-not-to-fool-other-scientists-">The first principle is that you must not fool yourself and you are the easiest person to fool... After you've not fooled yourself, it's easy not to fool other scientists.</h2>
+<div class="footnote">Richard P. Feynman</div>
+<div class="top-right"><img src="./Assurance Case_files/Feynman-2.gif" alt="RF"></div><div class="remark-slide-number">2 / 117</div></div></div></div><div class="remark-slide-notes"></div></div></div>
+<div class="remark-backdrop"></div>
+<div class="remark-pause" >
+  <div class="remark-pause-lozenge">
+    <span>Paused</span>
+  </div>
+</div>
+<div class="remark-help" >
+  <div class="remark-help-content">
+    <h1>Help</h1>
+    <p><b>Keyboard shortcuts</b></p>
+    <table class="light-keys">
+      <tbody><tr>
+        <td>
+          <span class="key"><b>↑</b></span>,
+          <span class="key"><b>←</b></span>,
+          <span class="key">Pg Up</span>,
+          <span class="key">k</span>
+        </td>
+        <td>Go to previous slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key"><b>↓</b></span>,
+          <span class="key"><b>→</b></span>,
+          <span class="key">Pg Dn</span>,
+          <span class="key">Space</span>,
+          <span class="key">j</span>
+        </td>
+        <td>Go to next slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">Home</span>
+        </td>
+        <td>Go to first slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">End</span>
+        </td>
+        <td>Go to last slide</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">b</span>&nbsp;/
+          <span class="key">m</span>&nbsp;/
+          <span class="key">f</span>
+        </td>
+        <td>Toggle blackout / mirrored / fullscreen mode</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">c</span>
+        </td>
+        <td>Clone slideshow</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">p</span>
+        </td>
+        <td>Toggle presenter mode</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">t</span>
+        </td>
+        <td>Restart the presentation timer</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="key">?</span>,
+          <span class="key">h</span>
+        </td>
+        <td>Toggle this help</td>
+      </tr>
+    </tbody></table>
+  </div>
+  <div class="content dismiss">
+    <table class="light-keys">
+      <tbody><tr>
+        <td>
+          <span class="key">Esc</span>
+        </td>
+        <td>Back to slideshow</td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+
+
+</body></html>
